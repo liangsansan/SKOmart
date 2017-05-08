@@ -1,98 +1,506 @@
-<?php 
-	session_start();
-	// echo $_SESSION['name'];
-	if(isset($_SESSION['login_email'])){
-		// echo $_SESSION['login_email'];
-	}else {
-		//跳转页面
-		header("Location: login.html");
-		exit;
-	}
-?> 
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>main</title>
-
-	<link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="libs/jquery-confirm/jquery-confirm.css">
-
-	<script type="text/javascript" src="libs/jquery/jquery-3.1.1.min.js"></script>
-	<script type="text/javascript" src="libs/jquery-confirm/jquery-confirm.js"></script>
-	<style type="text/css" media="screen">
-		.dkHeader{width: 100%; height: 48px; padding-left: 28px; line-height: 48px;}
-		.dkContainer{position: fixed; top: 48px; left: 0; right: 0; bottom: 48px; border:solid 1px #C8C7CC;}
-		.dkContainer>.dkNav{position: absolute; top: 0; left: 0; width: 198px;bottom: 0; border-right: solid 1px #C8C7CC;}
-		.dkContainer>.dkBody{position: absolute; top: 0; left: 198px; right: 0;bottom: 0; }
-		.bs-example{width: 55%; margin: 30px auto;}
-	</style>
+	<meta charset="UTF-8">
+	<title>名鞋库</title>
+	<link href="img/favicon.ico" mce_href="img/favicon.ico" rel="bookmark" type="image/x-icon" /> 
+	<link href="img/favicon.ico" mce_href="img/favicon.ico" rel="icon" type="image/x-icon" /> 
+	<link href="img/favicon.ico" mce_href="img/favicon.ico" rel="shortcut icon" type="image/x-icon" /> 
+	<link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/index.css">
+	<script src="lib/jquery/jquery-3.1.1.js"></script>
+	<script src="lib/common.js"></script>
+	<script src="js/fade.js"></script>
+	<script src="js/home.js"></script>
 </head>
 <body>
-	<div class="dkHeader">
-		<?php echo $_SESSION['login_email']; ?>
-		<!-- <input type="button" name="" value="退出" class="btn btn-info"> -->
-	</div>
-	<div class="dkContainer">
-		<div class="dkNav">
-			<ul class="list-group">
-				<li class="list-group-item"><a href="javascript:">修改用户信息</a></li>
-				<li class="list-group-item"><a href="javascript:">修改密码</a></li>
-				<li class="list-group-item"><a href="logout.php">退出</a></li>
-			</ul>
-		</div>
-		<div class="dkBody">
-			
-			<div class="bs-example">
-			    <form class="form-horizontal" role="form">
-			      <div class="form-group">
-			        <label for="inputPassword3" class="col-sm-2 control-label">Old Password</label>
-			        <div class="col-sm-10">
-			          <input type="password" class="form-control" id="oldpassword" name="oldpassword" placeholder="Password">
-			        </div>
-			      </div>    
-			      <div class="form-group">
-			        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-			        <div class="col-sm-10">
-			          <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-			        </div>
-			      </div>    
-				  <div class="form-group">
-			        <label for="inputEmail3" class="col-sm-2 control-label">Phone</label>
-			        <div class="col-sm-10">
-			          <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone">
-			        </div>
-			      </div>         
-			      <div class="form-group">
-			        <div class="col-sm-offset-2 col-sm-10">
-			          <button type="button" id="submit" class="btn btn-default">Confirm</button>
-			        </div>
-			      </div>
-			    </form>
-		  	</div>			
-
+	<div class="topLink_back">
+		<div class="container">
+			<div id="topLink" class="clearfix" style="">
+				<ul>
+					<li><a href="html/login.html">
+					</a></li>
+					<li>
+						<a href="">免费注册</a>
+						
+					</li>
+					<li class="topLink_3">
+						<a href="">我的名鞋库</a>
+						<div class="login">
+							<ul>
+								<li>我的订单</li>
+								<li>优惠券</li>
+								<li>收货地址</li>
+							</ul>
+							<ul>
+								<li>我的积分</li>
+								<li>商品收藏</li>
+								<li>密码管理</li>
+							</ul>
+						</div>
+					</li>
+					<li class="topLink_4">
+						<a href="">手机名鞋库</a>
+						<div class="erwei">
+							<img src="img/wei1.png" alt="">
+							<img src="img/wei2.png" alt="">
+						</div>
+					</li>
+					<li><a href="">收藏名鞋库</a></li>
+					<li><a href="">名鞋库客服</a></li>
+					<li></li>
+				</ul>
+			</div>
 		</div>
 	</div>
-	<div class="dkFoot"></div>
+	<div class="top_b">
+		<div class="container">
+			<div id="top">
+				<div class="top_left" class="clearfix"></div>
+				<div class="top_right">
+					<div class="topr_left">
+						<form action="#">
+							<div class="sbox">
+								<input type="text" value="篮球鞋" class="form-control">
+								<button class="btn btn-default">搜索</button>
+							</div>
+							<p>
+								<span><a href="">热搜:</a></span>
+								<span><a href="">耐克</a></span>
+								<span><a href="">阿迪</a></span>
+								<span><a href="">新品</a></span>
+								<span><a href="">帆布鞋</a></span>
+								<span><a href="">跑步鞋</a></span>
+								<span><a href="">篮球鞋</a></span>
+								<span><a href="">外套</a></span>
+							</p>
+						</form>
+					</div>
+					<div class="topr_right">
+						<div class="topr_right_a">
+							<a href="#">
+								<i class="glyphicon glyphicon-lock"></i>
+								购物车
+								<b class="topr_rightb">0</b>
+								件
+							</a>
+						</div>	
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+			<div id="nav" class="clearfix">
+				<div class="container">
+					<div class="nav_p">
+						所有商品分类
+						<ul class="nav_p_ul">
+							<li class="nav_Sport">
+								<a href="">运动休闲鞋</a>
+								<div class="Sport">
+									<div class="Sport_1">
+										<h3>
+											<i><a href=""><img src="img/xie1.png" alt=""></a></i>
+											<span><a href="">更多</a></span>
+										</h3>
+										<ul>
+											<li><a href="">休闲鞋</a></li>
+											<li><a href="">帆布鞋</a></li>
+											<li><a href="">板鞋</a></li>
+											<li><a href="">训练鞋</a></li>
+											<li><a href="">网球鞋</a></li>
+										</ul>
+									</div>
+									<div class="Sport_2"></div>
+									<div class="Sport_3"></div>
+									<div class="Sport_4"></div>
+								</div>
+							</li>
+							<li><a href="">运动休闲服</a></li>
+							<li><a href="">跑步</a></li>
+							<li><a href="">篮球</a></li>
+							<li><a href="">足球</a></li>
+							<li><a href="">包包/配件</a></li>
+							<li><a href="">户外</a></li>
+							<li><a href="">男鞋/女鞋</a></li>
+							<li><a href="">童鞋</a></li>
+						</ul>
+					</div>
+					<div class="nav_ul">
+						<ul>
+							<li class="nav_ul_1"><a href="">首页</a></li>
+							<li class="nav_ul_2"><a href="">男子运动</a>
+							<div class="nav_Men">
+								<ul>
+									<h3>运动鞋</h3>
+									<li><a href="">休闲鞋</a></li>
+									<li><a href="">板鞋</a></li>
+									<li><a href="">跑步鞋</a></li>
+									<li><a href="">帆布鞋</a></li>
+									<li><a href="">拖鞋</a></li>
+									<li><a href="">篮球鞋</a></li>
+									<li><a href="">足球鞋</a></li>
+									<li><a href="">赛车鞋</a></li>
+									<li><a href="">网球鞋</a></li>
+									<li><a href="">溯溪鞋</a></li>
+								</ul>
+								<ul>
+									<h3>服装</h3>
+									<li><a href="">短袖T恤</a></li>
+									<li><a href="">短袖POLO</a></li>
+									<li><a href="">运动长裤</a></li>
+									<li><a href="">运动短裤</a></li>
+									<li><a href="">休闲裤</a></li>
+									<li><a href="">卫衣</a></li>
+									<li><a href="">外套</a></li>
+								</ul>
+								<i><img src="img/nav1.png" alt=""></i>
+							</div>
+							</li>
+							<li class="nav_ul_3"><a href="">女子运动</a>
+							<div class="nav_WoMen">
+								<ul>
+									<h3>运动鞋</h3>
+									<li><a href="">休闲鞋</a></li>
+									<li><a href="">板鞋</a></li>
+									<li><a href="">跑步鞋</a></li>
+									<li><a href="">帆布鞋</a></li>
+									<li><a href="">拖鞋</a></li>
+									<li><a href="">篮球鞋</a></li>
+									<li><a href="">足球鞋</a></li>
+								</ul>
+								<ul>
+									<h3>服装</h3>
+									<li><a href="">短袖T恤</a></li>
+									<li><a href="">短袖POLO</a></li>
+									<li><a href="">运动长裤</a></li>
+									<li><a href="">运动短裤</a></li>
+									<li><a href="">休闲裤</a></li>
+									<li><a href="">卫衣</a></li>
+									<li><a href="">外套</a></li>
+								</ul>
+								<i><img src="img/nav1.png" alt="">
+								</i>
+							</div>
+							</li>
+							<li><a href="">儿童</a></li>
+							<li><a href="">男鞋</a></li>
+							<li><a href="">户外</a></li>
+							<li class="weixin"><img src="img/weixin.png" alt="">
+							<span><img src="img/weixinma.png" alt=""></span>
+							</li>
+						</ul>
+					</div>
+					<div class="nav_right">
+						<ul>
+							<li><a href="">上新区</a></li>
+							<li><a href="">即将售完</a></li>
+							<li><a href="">逢八必杀</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div id="banner">
+				<ul class="banner_ul">
+					<li><img src="img/001.jpg"></li>
+					<li><img src="img/002.jpg"></li>
+					<li><img src="img/003.jpg"></li>
+					<li><img src="img/004.jpg"></li>
 
-	<script type="text/javascript">
-		$(function(){
-			$('#submit').click(function(){
-				$.post('modify.php',{
-					oldpassword: $('#oldpassword').val(),
-					password: $('#password').val(),
-					phone: $('#phone').val()
-				}, function(response){
-					var $obj = eval('(' + response + ')');
-					if($obj.state){
-						$.alert('修改成功！');
-					} else {
-						$.alert($obj.message);
-					}
-				})				
-			})
-		})
-	</script>	
+					<li><img src="img/001.jpg"></li>
+					<li><img src="img/002.jpg"></li>
+					<li><img src="img/003.jpg"></li>
+					<li><img src="img/004.jpg"></li>
+				</ul>
+			</div>
+			<div class="container">
+				<div id="main">
+					<div class="main_h2">
+						<div class="main_h2P">
+							<p>
+								<span>户外/运动</span>
+								<span>儿童</span>
+							</p>
+						</div>
+					</div>
+					<div class="main_top clearfix">
+						<div class="main_top_left">
+							<ul>
+								<li><a href=""></a></li>
+								<li><a href=""></a></li>
+								<li><a href=""></a></li>
+								<li><a href=""></a></li>
+								<li><a href=""></a></li>
+								<li><a href=""></a></li>
+								<li><a href=""></a></li>
+								<li><a href=""></a></li>
+								<li><a href=""></a></li>
+								<li><a href=""></a></li>
+								<li><a href=""></a></li>
+								<li><a href=""></a></li>
+								<li><a href=""></a></li>
+								<li><a href=""></a></li>
+								<li><a href=""></a></li>
+								<li><a href=""></a></li>
+								<li><a href=""></a></li>
+								<li><a href=""></a></li>
+								<li><a href=""></a></li>
+								<li><a href=""></a></li>
+								<li><a href=""></a></li>
+								
+							</ul>
+
+						</div>
+						<div class="main_top_right">
+							<div class="main_t_r_ul">
+								<ul>
+									<li>. 颜王撩妹，运动风全程开挂！</li>
+									<li>. 说走就走，用一场旅行致青春</li>
+									<li>. DC潮货出没，帅得犯规！</li>
+								</ul>
+							</div>
+							<div class="main_t_r_center">
+								<img src="img/news.png" alt="">
+							</div>
+							<div class="main_t_r_bottom">
+								<div class="main_side clearfix">
+									<i class="i_li1"></i>
+									<i class="i_li2"></i>
+								</div>
+								<ul>
+									<li class="li_1"><a href=""><img src="img/s160111xp3.jpg" alt=""></a></li>
+									<li class="li_2"><a href=""><img src="img/s160111xp2.jpg" alt=""></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="main_center clearfix">
+						<div class="main_c_p">
+							<ul>
+								<li><a href=""><img src="img/m1.jpg" alt=""></a></li>
+								<li><a href=""><img src="img/m2.jpg" alt=""></a></li>
+								<li><a href=""><img src="img/m3.jpg" alt=""></a></li>
+								<li><a href=""><img src="img/m4.jpg" alt=""></a></li>
+								<li><a href=""><img src="img/m5.jpg" alt=""></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="main_link clearfix">
+						<div class="main_l_p clearfix">
+							<div class="main_link_left ">
+								<img src="img/mainC1.png" alt="">
+								<ul class="clearfix">
+									<li class="main_l_l1 btn btn-default">
+										<span>鞋类</span>
+										<span>&gt;</span>
+									</li>
+									<li class="main_l_l2 btn btn-default">
+										<span>服装</span>
+										<span>&gt;</span>
+									</li>
+								</ul>
+								<div class="main_l_l_nav">
+									<div class="main_l_l_b clearfix">
+										<ul>
+											<h4>类别</h4>
+											<li>休闲鞋</li>
+											<li>跑步鞋</li>
+											<li>篮球鞋</li>
+											<li>板鞋</li>
+											<li>足球鞋</li>
+											<li>训练鞋</li>
+											<li>帆布鞋</li>
+											<li>网球鞋</li>
+										</ul>
+										<ul>
+											<h4>场景</h4>
+											<li>休闲</li>
+											<li>篮球</li>
+											<li>跑步</li>
+											<li>足球</li>
+											<li>网球</li>
+											<li>训练</li>
+											<li>户外</li>
+										</ul>
+									</div>
+									<div class="main_l_l_n clearfix">
+										<ul>
+											<h4>类别</h4>
+											<li>长袖T恤</li>
+											<li>短袖T恤</li>
+											<li>短袖POLO</li>
+											<li>外套</li>
+											<li>卫衣</li>
+											<li>运动短裤</li>
+											<li>运动裤</li>
+										</ul>
+										<ul>
+											<h4>场景</h4>
+											<li>休闲</li>
+											<li>训练</li>
+											<li>篮球</li>
+											<li>足球</li>
+											<li>跑步</li>
+											<li>网球</li>
+											<li>赛车</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="main_link_center">
+								<img src="img/mainC2.png" alt="">
+								<ul class="clearfix">
+									<li class="main_l_c1 btn btn-default">
+										<span>鞋类</span>
+										<span>&gt;</span>
+									</li>
+									<li class="main_l_c2 btn btn-default">
+										<span>服装</span>
+										<span>&gt;</span>
+									</li>
+								</ul>
+								<div class="main_l_c_nav">
+									<div class="main_l_c_b clearfix">
+										<ul>
+											<h4>类别</h4>
+											<li>休闲鞋</li>
+											<li>跑步鞋</li>
+											<li>篮球鞋</li>
+											<li>板鞋</li>
+											<li>足球鞋</li>
+											<li>训练鞋</li>
+											<li>帆布鞋</li>
+											<li>网球鞋</li>
+										</ul>
+										<ul>
+											<h4>场景</h4>
+											<li>休闲</li>
+											<li>篮球</li>
+											<li>跑步</li>
+											<li>足球</li>
+											<li>网球</li>
+											<li>训练</li>
+											<li>户外</li>
+										</ul>
+									</div>
+									<div class="main_l_c_n clearfix">
+										<ul>
+											<h4>类别</h4>
+											<li>长袖T恤</li>
+											<li>短袖T恤</li>
+											<li>短袖POLO</li>
+											<li>外套</li>
+											<li>卫衣</li>
+											<li>运动短裤</li>
+											<li>运动裤</li>
+										</ul>
+										<ul>
+											<h4>场景</h4>
+											<li>休闲</li>
+											<li>训练</li>
+											<li>篮球</li>
+											<li>足球</li>
+											<li>跑步</li>
+											<li>网球</li>
+											<li>赛车</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="main_link_right">
+								<img src="img/mainC3.png" alt="">
+								<div class="main_l_r_b clearfix">
+										<ul>
+											<h4>类别</h4>
+											<li>双肩包</li>
+											<li>单肩包</li>
+											<li>腰包</li>
+											<li>手拎包</li>
+											<li>袜子</li>
+											<li>帽子</li>
+											<li>手套</li>
+										</ul>
+										<ul>
+											<h4>场景</h4>
+											<li>休闲</li>
+											<li>篮球</li>
+											<li>足球</li>
+											<li>训练</li>
+										</ul>
+									</div>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="main_1F">
+						<div class="main_1F_p clearfix">
+							<div class="main_1F_left">
+								<div class="main_1F_l_top">
+									<img src="img/1f.png" alt="">
+								</div>
+								<div class="main_1F_l_center">
+									<div class="main_1F_link">
+										<ul>
+											<li><a href="">耐克</a></li>
+											<li><a href="">三叶草</a></li>
+											<li><a href="">新百伦</a></li>
+											<li><a href="">彪马</a></li>
+											<li><a href="">万斯</a></li>
+											<li><a href="">DC</a></li>
+										</ul>
+										<ul>
+											<li><a href="">阿迪达斯</a></li>
+											<li><a href="">NEO</a></li>
+											<li><a href="">匡威</a></li>
+											<li><a href="">锐步</a></li>
+											<li><a href="">亚瑟士</a></li>
+											<li><a href="">umbro</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="main_1F_l_bottom">
+									<ul>
+										<li><a href="">休闲鞋</a></li>
+										<li><a href="">帆布鞋</a></li>
+										<li><a href="">NB复古鞋</a></li>
+										<li><a href="">ROSHERUN</a></li>
+									</ul>
+									<ul>
+										<li><a href="">板鞋</a></li>
+										<li><a href="">ZX系列</a></li>
+										<li><a href="">Air max</a></li>
+										<li><a href="">明星同款</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="main_1F_img">
+								<a href="">
+									<img src="img/1F_l1.jpg" alt="">
+								</a>
+							</div>
+							<div class="main_1F_right">
+								<ul class="clearfix">
+									<li><a href=""><img src="img/l1-1.jpg" alt=""></a></li>
+									<li><a href=""><img src="img/l1-2.jpg" alt=""></a></li>
+									<li><a href=""><img src="img/l1-3.jpg" alt=""></a></li>
+								</ul>
+								<ul class="clearfix">
+									<li><a href=""><img src="img/l1-4.jpg" alt=""></a></li>
+									<li><a href=""><img src="img/l1-5.jpg" alt=""></a></li>
+									<li><a href=""><img src="img/l1-6.jpg" alt=""></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			<div class="redLine"></div>
+		<div class="container">
+			<div id="footer"></div>
+		</div>
 </body>
 </html>

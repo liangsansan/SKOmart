@@ -1,0 +1,36 @@
+@charset "UTF-8";
+body, h1, h2, h3, h4, h5, h6, p, dl, dd, ul, ol, pre, form, input, textarea, th, td, select, figure, figcaption { margin: 0; padding: 0; }
+
+em { font-style: normal; }
+
+li { list-style: none; }
+
+a { text-decoration: none; color: blue; }
+
+img { border: none; vertical-align: baseline; display: block; }
+
+table { border-collapse: collapse; }
+
+textarea { resize: none; overflow: hidden; }
+
+body { font-family: '微软雅黑'; font-size: 14px; box-sizing: border-box; }
+
+.clearfix:after { content: ""; height: 0; display: block; clear: both; overflow: hidden; visibility: hidden; }
+
+* { box-sizing: border-box; }
+
+.container { width: 1190px; margin: 0 auto; }
+
+#top { height: 78px; background: #EEEEED; }
+
+#nav { height: 34px; background: #A21F25; }
+
+#banner { height: 385px; background: #C5F7D4; }
+
+#main { height: 1478px; background: #F6F6F6; }
+
+#link { height: 395px; }
+
+.redLine { width: 100%; height: 2px; background: #CE3C3B; }
+
+#footer { height: 426px; background: #F8F8F8; }

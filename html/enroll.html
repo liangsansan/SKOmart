@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>名鞋库用户注册</title>
+	<link href="../img/favicon.ico" mce_href="../img/favicon.ico" rel="bookmark" type="image/x-icon" /> 
+	<link href="../img/favicon.ico" mce_href="../img/favicon.ico" rel="icon" type="image/x-icon" /> 
+	<link href="../img/favicon.ico" mce_href="../img/favicon.ico" rel="shortcut icon" type="image/x-icon" /> 
+	<link rel="stylesheet" href="../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/enroll.css">
+	<script src="../lib/jquery/jquery-3.1.1.js"></script>
+	<script>
+		$(function(){
+			$('.btn_login').click(function(){
+				$.post('../php/enroll.php',{
+					name: $('.username').val(),
+					password: $('.password').val(),
+				}, function(response){
+					var $obj = eval('(' + response + ')');
+					if($obj.state){
+						alert('注册成功！请登录您的用户名');
+					} else {
+						/*$.alert($obj.message);*/
+						alert($obj.message);
+					}
+				})				
+			})
+		})
+	</script>
+</head>
+<body>
+	<div id="head">
+		<div class="top_com">
+			<img src="../img/newlogo.png" alt="">
+		</div>
+	</div>
+	<div class="common">
+		<div class="h5_div clearfix">
+			<h5><a href="../index.html">返回首页</a></h5>
+		</div>
+		<div id="e_interface">
+			<div class="mxk_userRegister">
+				<h3>名鞋库用户注册</h3>
+				<div class="mxk_register">
+					<form action="">
+						&nbsp;&nbsp;&nbsp;&nbsp;用户名:<input type="text" name="username" class="username" required placeholder="邮箱/手机"><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;密码: <input type="password" name="password" class="password"><br>
+						确认密码:<input type="password" name="repassword" class="repassword"><br>
+						<i></i><input type="checkbox" name="checkbox" checked><span>我已阅读并同意 <a href="">名鞋库会员注册协议。</a></span><br>
+						<input type="button" class="btn_login btn btn-danger" value="注册新用户">
+					</form>
+				</div>
+				<div class="mxk_userBtn">
+					<p>已有名鞋库账号?</p>
+					<button class="btn btn-primary btn-lg active"><a href="">现在登录</a></button>
+					<img src="imgs/singupmy.png" alt="">
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<div class="common" style="width:980px;padding: 0;margin-top: 30px;">
+		<div class="red"></div>
+		<div id="footer">
+			<div class="foot_p clearfix">
+				<ul>
+					<li><a href="">关于名鞋库</a></li>
+					<li><a href="">联系名鞋库</a></li>
+					<li><a href="">人才招聘</a></li>
+					<li><a href="">免责条款</a></li>
+					<li><a href="">法律声明</a></li>
+					<li><a href="">客户留言</a></li>
+					<li><a href="">意见反馈</a></li>
+					<li><a href="">全部分类</a></li>
+					<li><a href="">友情链接</a></li>
+					<li><a href="">鞋子尺码对照表</a></li>
+					<li><a href="">问答咨询评论主题</a></li>
+					<li><a href="">鞋子品牌大全</a></li>
+					<li><a href="">商品大全</a></li>
+				</ul>
+				<p>Copyright © 2008-2014 <span>s.cn</span> All Rights Reserved.     	<a href="">闽ICP备08106896号</a>     <a href="">经营许可证闽B2-20110061</a></p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

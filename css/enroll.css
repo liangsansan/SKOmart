@@ -1,0 +1,75 @@
+@charset "UTF-8";
+body, h1, h2, h3, h4, h5, h6, p, dl, dd, ul, ol, pre, form, input, textarea, th, td, select, figure, figcaption { margin: 0; padding: 0; }
+
+em { font-style: normal; }
+
+li { list-style: none; }
+
+a { text-decoration: none; color: blue; }
+
+img { border: none; vertical-align: baseline; display: block; }
+
+table { border-collapse: collapse; }
+
+textarea { resize: none; overflow: hidden; }
+
+body { font-family: '微软雅黑'; font-size: 14px; background: #F6F6F6; }
+
+.clearfix:after { content: ""; height: 0; display: block; clear: both; overflow: hidden; visibility: hidden; }
+
+* { box-sizing: border-box; }
+
+.container { width: 1190px; margin: 0 auto; padding: 0; }
+
+body { background: #fff; }
+
+.common { width: 980px; margin: 0 auto; padding: 0 100px 0 100px; }
+
+.common .h5_div > h5 { float: right; }
+
+.common .h5_div > h5 a { color: #999999; font-weight: 100; }
+
+.common #e_interface { margin-top: 18px; width: 782px; height: 448px; border: 1px solid #EFEFEF; }
+
+.common #e_interface .mxk_userRegister h3 { font-size: 16px; height: 32px; line-height: 32px; background: #F8F8F8; color: #888888; padding-left: 10px; }
+
+.common #e_interface .mxk_userRegister .mxk_register { padding: 40px 0 34px 80px; margin-top: 32px; width: 428px; height: 302px; float: left; border-right: 1px dashed #ccc; }
+
+.common #e_interface .mxk_userRegister .mxk_register form i { display: inline-block; width: 75px; height: 10px; }
+
+.common #e_interface .mxk_userRegister .mxk_register .username, .common #e_interface .mxk_userRegister .mxk_register .password, .common #e_interface .mxk_userRegister .mxk_register .repassword { width: 230px; height: 30px; padding-left: 10px; margin-bottom: 20px; }
+
+.common #e_interface .mxk_userRegister .mxk_register .btn { background: #DA4200; margin-left: 75px; margin-top: 10px; }
+
+.common #e_interface .mxk_userRegister .mxk_userBtn { float: right; width: 274px; height: 222px; margin-top: 72px; text-align: center; }
+
+.common #e_interface .mxk_userRegister .mxk_userBtn p { margin-bottom: 20px; }
+
+.common #e_interface .mxk_userRegister .mxk_userBtn button { background: #FBF3E4; border-color: #FBF3E4; margin-bottom: 20px; }
+
+.common #e_interface .mxk_userRegister .mxk_userBtn button a { color: #CC6666; text-decoration: none; }
+
+.common #e_interface .mxk_userRegister .mxk_userBtn img { margin-left: 58px; }
+
+.red { height: 2px; background: #CE3C3B; }
+
+/* footer */
+#footer { height: 79px; }
+
+#footer .foot_p { padding-top: 20px; }
+
+#footer .foot_p ul { text-align: center; }
+
+#footer .foot_p ul li { float: left; }
+
+#footer .foot_p ul li a { display: block; padding: 0 8px; font-size: 12px; line-height: 12px; color: #777; border-left: 1px solid #777777; }
+
+#footer .foot_p ul li a:first-child { border-left: none; }
+
+#footer .foot_p ul li:first-child { margin-left: 10px; }
+
+#footer .foot_p > p { text-align: center; font-size: 12px; color: #777777; padding-top: 20px; }
+
+#footer .foot_p > p span { font-weight: bold; color: #CC0000; font-size: 16px; }
+
+#footer .foot_p > p a { color: #777777; }

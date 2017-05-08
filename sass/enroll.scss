@@ -1,0 +1,86 @@
+@import 'common';
+
+body{
+	background:#fff;
+}
+.common{
+	width: 980px;
+	margin: 0 auto;
+	padding: 0 100px 0 100px;
+	.h5_div{
+		>h5{
+			float:right;
+			a{
+				color:#999999;
+				font-weight: 100;
+			}
+		}
+	}
+	#e_interface{
+		margin-top: 18px;
+		width: 782px;
+		height: 448px;
+		border:1px solid #EFEFEF;
+		.mxk_userRegister{
+			h3{
+				font-size:16px;
+				height: 32px;
+				line-height: 32px;
+				background:#F8F8F8;
+				color:#888888;
+				padding-left: 10px;
+			}
+			.mxk_register{
+				padding: 40px 0 34px 80px;
+				margin-top: 32px;
+				width: 428px;
+				height: 302px;
+				float:left;
+				border-right: 1px dashed #ccc;
+				form{
+					i{
+						display:inline-block;
+						width: 75px;
+						height: 10px;
+					}
+				}
+				.username,.password,.repassword{
+					width: 230px;
+					height: 30px;
+					padding-left: 10px;
+					margin-bottom: 20px;
+				}
+				.btn{
+					background:#DA4200;
+					margin-left: 75px;
+					margin-top: 10px;
+				}
+			}
+			.mxk_userBtn{
+				float:right;
+				width: 274px;
+				height: 222px;
+				margin-top: 72px;
+				text-align:center;
+				p{
+					margin-bottom: 20px;
+				}
+				button{
+					background:#FBF3E4;
+					
+					border-color:#FBF3E4;
+					margin-bottom: 20px;
+					a{
+						color:#CC6666;
+						text-decoration: none;
+					}
+				}
+				img{
+					margin-left: 58px;
+				}
+			}
+		}
+	}
+}
+
+@import 'footer'

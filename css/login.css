@@ -1,0 +1,83 @@
+@charset "UTF-8";
+body, h1, h2, h3, h4, h5, h6, p, dl, dd, ul, ol, pre, form, input, textarea, th, td, select, figure, figcaption { margin: 0; padding: 0; }
+
+em { font-style: normal; }
+
+li { list-style: none; }
+
+a { text-decoration: none; color: blue; }
+
+img { border: none; vertical-align: baseline; display: block; }
+
+table { border-collapse: collapse; }
+
+textarea { resize: none; overflow: hidden; }
+
+body { font-family: '微软雅黑'; font-size: 14px; background: #F6F6F6; }
+
+.clearfix:after { content: ""; height: 0; display: block; clear: both; overflow: hidden; visibility: hidden; }
+
+* { box-sizing: border-box; }
+
+.container { width: 1190px; margin: 0 auto; padding: 0; }
+
+body { background: #fff; }
+
+.common { width: 980px; margin: 0 auto; /* 登录界面 */ }
+
+.common #interface { padding: 9px 0 31px 3px; }
+
+.common #interface .interface_l { float: left; padding-right: 3px; }
+
+.common #interface .interface_r { width: 594px; height: 380px; float: right; padding-left: 76px; }
+
+.common #interface .interface_r > h4 { font-size: 18px; color: #000; }
+
+.common #interface .interface_r > h4 span { padding-left: 5px; font-size: 12px; color: #ccc; font-weight: 100; }
+
+.common #interface .interface_r .login_interface { width: 386px; height: 244px; background: #FAFAFA; margin-top: 10px; border: 1px solid #EEEEEE; padding: 36px 54px 0 44px; }
+
+.common #interface .interface_r .login_interface form { font-weight: 100; }
+
+.common #interface .interface_r .login_interface form input { width: 232px; height: 30px; margin-bottom: 10px; border: 1px solid #ccc; padding-left: 5px; }
+
+.common #interface .interface_r .login_interface form #password { margin-left: 2px; }
+
+.common #interface .interface_r .login_interface form .btn { width: 90px; height: 38px; background: #DA4200; margin-left: 56px; }
+
+.common #interface .interface_r .login_interface form > span { font-size: 12px; color: #aaa; margin-left: 10px; margin-top: 10px; }
+
+.common #interface .interface_r .login_interface > p { padding-top: 20px; margin-left: 56px; font-size: 12px; }
+
+.common #interface .interface_r .login_interface > p span { margin-left: 16px; }
+
+.common #interface .interface_r .login_interface > p span a { color: #FF6600; text-decoration: underline; }
+
+.common #interface .interface_r .login_interface > p span a:hover { color: #F00; }
+
+.common #interface .interface_r .login_link > p { padding-top: 15px; font-size: 12px; color: #ccc; }
+
+.common #interface .interface_r .login_link > ul li { float: left; padding-right: 15px; }
+
+.red { height: 2px; background: #CE3C3B; }
+
+/* footer */
+#footer { height: 79px; }
+
+#footer .foot_p { padding-top: 20px; }
+
+#footer .foot_p ul { text-align: center; }
+
+#footer .foot_p ul li { float: left; }
+
+#footer .foot_p ul li a { display: block; padding: 0 8px; font-size: 12px; line-height: 12px; color: #777; border-left: 1px solid #777777; }
+
+#footer .foot_p ul li a:first-child { border-left: none; }
+
+#footer .foot_p ul li:first-child { margin-left: 10px; }
+
+#footer .foot_p > p { text-align: center; font-size: 12px; color: #777777; padding-top: 20px; }
+
+#footer .foot_p > p span { font-weight: bold; color: #CC0000; font-size: 16px; }
+
+#footer .foot_p > p a { color: #777777; }
