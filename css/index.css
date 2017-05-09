@@ -34,9 +34,9 @@ body { font-family: '微软雅黑'; font-size: 14px; background: #F6F6F6; }
 
 #topLink > ul > li { float: left; line-height: 25px; }
 
-#topLink > ul > li a { display: block; color: #666666; font-size: 12px; padding: 0 16px; border-right: 1px solid #ccc; }
+#topLink > ul > li > a { display: block; color: #666666; font-size: 12px; padding: 0 16px; border-right: 1px solid #ccc; }
 
-#topLink > ul > li a:hover { color: #FF6600; text-decoration: underline; }
+#topLink > ul > li > a:hover { color: #FF6600; text-decoration: underline; }
 
 #topLink > ul > li:nth-child(1) a, #topLink > ul > li:nth-child(2) a { color: #FF6600; }
 
@@ -49,6 +49,8 @@ body { font-family: '微软雅黑'; font-size: 14px; background: #F6F6F6; }
 #topLink > ul > li .login > ul { float: left; padding-right: 9px; }
 
 #topLink > ul > li .login > ul li { width: 67px; height: 27px; font-size: 12px; line-height: 27px; border-bottom: 1px dashed #ccc; }
+
+#topLink > ul > li .login > ul li a { color: #000; }
 
 #topLink > ul > li:nth-child(4) { position: relative; }
 

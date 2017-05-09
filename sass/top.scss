@@ -21,7 +21,7 @@
 			float:left;
 			line-height:25px;
 			
-			a{
+			>a{
 				display:block;
 				color:#666666;
 				font-size:12px;
@@ -68,6 +68,9 @@
 						font-size: 12px;
 						line-height: 27px;
 						border-bottom: 1px dashed #ccc;
+						a{
+							color:#000;
+						}
 					}
 				}
 			}
