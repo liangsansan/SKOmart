@@ -3,17 +3,16 @@
 
 	session_start();
 
-	$oldpassword = $_POST["oldpassword"];
-	$password = $_POST["password"];
-	$phone = $_POST["phone"];
-	$email = $_SESSION['login_email'];
+	$oldPwd = $_POST["oldPwd"];
+	$newPwd = $_POST["newPwd"];
 
-	$sql = "select * from gz1610 where email = '$email'";
+	$sql = "select * from login where password = '$oldPwd'";
 	$result = query($sql);
+	// echo $sql;
 	if(count($result) > 0){
-		if($result[0]->password == $oldpassword){
+		if($result[0]->password == $oldPwd){
 			//执行修改操作
-			$update = "update login set password = '$password', phone = '$phone' where email = '$email'";
+			$update = "update login set password = '$newPwd'";
 			if(excute($update)){
 				echo "{state: true}";
 			} else {

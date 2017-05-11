@@ -1,13 +1,12 @@
+@import 'common';
 /* 头部 */
 #head{
 	padding: 20px 0;
 }
-.top_com{
-	width: 990px;
+.common{
+	width: 980px;
 	margin: 0 auto;
 }
-
-
 .topLink_back{
 	background:#EEEEEE;
 	border-bottom:1px solid #E5E5E5;
@@ -312,6 +311,7 @@
 							position:absolute;
 							display:none;
 							z-index:10;
+							margin-top: -1px;
 						}
 					}	
 				>a{

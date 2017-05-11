@@ -21,10 +21,12 @@ body { font-family: '微软雅黑'; font-size: 14px; background: #F6F6F6; }
 
 .container { width: 1190px; margin: 0 auto; padding: 0; }
 
+.common { width: 980px; margin: 0 auto; }
+
 /* 头部 */
 #head { padding: 20px 0; }
 
-.top_com { width: 990px; margin: 0 auto; }
+.common { width: 980px; margin: 0 auto; }
 
 .topLink_back { background: #EEEEEE; border-bottom: 1px solid #E5E5E5; height: 26px; }
 
@@ -136,7 +138,7 @@ body { font-family: '微软雅黑'; font-size: 14px; background: #F6F6F6; }
 
 #nav .nav_ul > ul > li:first-child { background: #444444; }
 
-#nav .nav_ul > ul > li:last-child span { position: absolute; display: none; z-index: 10; }
+#nav .nav_ul > ul > li:last-child span { position: absolute; display: none; z-index: 10; margin-top: -1px; }
 
 #nav .nav_ul > ul > li > a { color: #fff; text-decoration: none; font-size: 14px; padding: 0 16px; }
 

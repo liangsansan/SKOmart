@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="../img/favicon.ico" mce_href="../img/favicon.ico" rel="bookmark" type="image/x-icon" /> 
+	<link href="../img/favicon.ico" mce_href="../img/favicon.ico" rel="icon" type="image/x-icon" /> 
+	<link href="../img/favicon.ico" mce_href="../img/favicon.ico" rel="shortcut icon" type="image/x-icon" /> 
+	<link rel="stylesheet" href="../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/pro_per.css">
+	<link rel="stylesheet" href="../lib/jquery.gdszoom.css">
+	<script src="../lib/jquery/jquery-3.1.1.js"></script>
+	<script src="../lib/jquery.gdszoom.js"></script>
+	<script src="../js/head.js"></script>
+	<script src="../js/pro_per.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded',function(){
+			var btnNum = document.querySelector('.btnNum');
+			var btn1 = document.querySelector('.btn1');
+			var btn2 = document.querySelector('.btn2');
+			btn1.onclick = function(event){
+				var _num = btnNum.value;
+				if (_num <= 1) {
+					btnNum.value = 1;
+				}else{
+					var res = _num--;
+					btnNum.value = _num--; 
+				}
+			}
+			btn2.onclick = function(){
+				var _num = btnNum.value;
+				_num++;
+				btnNum.value = _num++; 
+			}
+		})
+	</script>
+</head>
+<body>
+	<div class="topLink_back">
+		<div class="container">
+			<div id="topLink" class="clearfix" style="">
+				<ul>
+					<li><a href="html/login.html" target="_block">欢迎登录名鞋库</a></li>
+					<li>
+						<a href="html/enroll.html" target="_block">免费注册</a>
+					</li>
+					<li class="topLink_3">
+						<a href="">我的名鞋库</a>
+						<div class="login">
+							<ul>
+								<li>我的订单</li>
+								<li>优惠券</li>
+								<li><a href="address.html">收货地址</a></li>
+							</ul>
+							<ul>
+								<li>我的积分</li>
+								<li>商品收藏</li>
+								<li>密码管理</li>
+							</ul>
+						</div>
+					</li>
+					<li class="topLink_4">
+						<a href="">手机名鞋库</a>
+						<div class="erwei">
+							<img src="../img/wei1.png" alt="">
+							<img src="../img/wei2.png" alt="">
+						</div>
+					</li>
+					<li><a href="">收藏名鞋库</a></li>
+					<li><a href="">名鞋库客服</a></li>
+					<li></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="top_b">
+		<div class="container">
+			<div id="top">
+				<div class="top_left" class="clearfix"></div>
+				<div class="top_right">
+					<div class="topr_left">
+						<form action="#">
+							<div class="sbox">
+								<input type="text" value="篮球鞋" class="form-control">
+								<button class="btn btn-default">搜索</button>
+							</div>
+							<p>
+								<span><a href="">热搜:</a></span>
+								<span><a href="">耐克</a></span>
+								<span><a href="">阿迪</a></span>
+								<span><a href="">新品</a></span>
+								<span><a href="">帆布鞋</a></span>
+								<span><a href="">跑步鞋</a></span>
+								<span><a href="">篮球鞋</a></span>
+								<span><a href="">外套</a></span>
+							</p>
+						</form>
+					</div>
+					<div class="topr_right">
+						<div class="topr_right_a">
+							<a href="#">
+								<i class="glyphicon glyphicon-lock"></i>
+								购物车
+								<b class="topr_rightb">0</b>
+								件
+							</a>
+						</div>	
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="nav" class="clearfix">
+		<div class="container">
+			<div class="nav_p">
+				所有商品分类
+				<ul class="nav_p_ul">
+					<li class="nav_Sport">
+						<a href="">运动休闲鞋</a>
+						<div class="Sport">
+							<div class="Sport_1">
+								<h3>
+									<i><a href=""><img src="../img/xie1.png" alt=""></a></i>
+									<span><a href="">更多</a></span>
+								</h3>
+								<ul>
+									<li><a href="">休闲鞋</a></li>
+									<li><a href="">帆布鞋</a></li>
+									<li><a href="">板鞋</a></li>
+									<li><a href="">训练鞋</a></li>
+									<li><a href="">网球鞋</a></li>
+								</ul>
+							</div>
+							<div class="Sport_2"></div>
+							<div class="Sport_3"></div>
+							<div class="Sport_4"></div>
+						</div>
+					</li>
+					<li><a href="">运动休闲服</a></li>
+					<li><a href="">跑步</a></li>
+					<li><a href="">篮球</a></li>
+					<li><a href="">足球</a></li>
+					<li><a href="">包包/配件</a></li>
+					<li><a href="">户外</a></li>
+					<li><a href="">男鞋/女鞋</a></li>
+					<li><a href="">童鞋</a></li>
+				</ul>
+			</div>
+			<div class="nav_ul">
+				<ul>
+					<li class="nav_ul_1"><a href="">首页</a></li>
+					<li class="nav_ul_2"><a href="">男子运动</a>
+					<div class="nav_Men">
+						<ul>
+							<h3>运动鞋</h3>
+							<li><a href="">休闲鞋</a></li>
+							<li><a href="">板鞋</a></li>
+							<li><a href="">跑步鞋</a></li>
+							<li><a href="">帆布鞋</a></li>
+							<li><a href="">拖鞋</a></li>
+							<li><a href="">篮球鞋</a></li>
+							<li><a href="">足球鞋</a></li>
+							<li><a href="">赛车鞋</a></li>
+							<li><a href="">网球鞋</a></li>
+							<li><a href="">溯溪鞋</a></li>
+						</ul>
+						<ul>
+							<h3>服装</h3>
+							<li><a href="">短袖T恤</a></li>
+							<li><a href="">短袖POLO</a></li>
+							<li><a href="">运动长裤</a></li>
+							<li><a href="">运动短裤</a></li>
+							<li><a href="">休闲裤</a></li>
+							<li><a href="">卫衣</a></li>
+							<li><a href="">外套</a></li>
+						</ul>
+						<i><img src="../img/nav1.png" alt=""></i>
+					</div>
+					</li>
+					<li class="nav_ul_3"><a href="">女子运动</a>
+					<div class="nav_WoMen">
+						<ul>
+							<h3>运动鞋</h3>
+							<li><a href="">休闲鞋</a></li>
+							<li><a href="">板鞋</a></li>
+							<li><a href="">跑步鞋</a></li>
+							<li><a href="">帆布鞋</a></li>
+							<li><a href="">拖鞋</a></li>
+							<li><a href="">篮球鞋</a></li>
+							<li><a href="">足球鞋</a></li>
+						</ul>
+						<ul>
+							<h3>服装</h3>
+							<li><a href="">短袖T恤</a></li>
+							<li><a href="">短袖POLO</a></li>
+							<li><a href="">运动长裤</a></li>
+							<li><a href="">运动短裤</a></li>
+							<li><a href="">休闲裤</a></li>
+							<li><a href="">卫衣</a></li>
+							<li><a href="">外套</a></li>
+						</ul>
+						<i><img src="../img/nav1.png" alt="">
+						</i>
+					</div>
+					</li>
+					<li><a href="">儿童</a></li>
+					<li><a href="">男鞋</a></li>
+					<li><a href="">户外</a></li>
+					<li class="weixin"><img src="../img/weixin.png" alt="">
+					<span><img src="../img/weixinma.png" alt=""></span>
+					</li>
+				</ul>
+			</div>
+			<div class="nav_right">
+				<ul>
+					<li><a href="">上新区</a></li>
+					<li><a href="">即将售完</a></li>
+					<li><a href="">逢八必杀</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<div class="pro_back">
+		<div id="pro_main" class=" clearfix">	
+			<div class="p_main_t">
+				<p>您当前的位置： <a href="">名鞋库</a> » <a href="">运动鞋子</a> » <a href="">休闲鞋</a> » <a href="">NEO</a> » <a href="">NEO鞋子</a> » <a href="">NEO AW3916</a>
+				</p>
+				<div class="pro_mtop_l clearfix">
+					<div class="pro_img">
+						<!-- 大图 -->
+						<div class="zoom">
+								<img src="../pro_img/d1.jpg" data-big="../pro_img/dd1.jpg">
+						</div>
+						<!-- 小图 -->
+						<ul class="small-list">
+							<li><a><img src="../pro_img/1.jpg" alt=""></a></li>
+							<li><a><img src="../pro_img/1.jpg" alt=""></a></li>
+							<li><a><img src="../pro_img/1.jpg" alt=""></a></li>
+							<li><a><img src="../pro_img/1.jpg" alt=""></a></li>
+							<li><a><img src="../pro_img/1.jpg" alt=""></a></li>
+							<li><a><img src="../pro_img/1.jpg" alt=""></a></li>
+							<li><a><img src="../pro_img/1.jpg" alt=""></a></li>
+						</ul>
+						
+					</div>
+				</div>
+				<div class="pro_mtop_r">
+					<div class="pro_title">
+						<h4>耐克Nike2017新款男鞋跑步鞋运动鞋跑步852461-005 <span><a href="">更多<i>耐克</i></a></span></h4>
+					</div>
+					<ul>
+						<li>吊  牌  价：<span>￥849.00</span></li>
+						<li>销  售  价：<b> ￥629.00</b><span> ( 7.4折 )   立省： ￥220.00</span></li>
+						<li>好  评  度：<span>  4.7分   (已有3人评论)</span></li>
+						<li>运&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;费：<span>名鞋库会员满399包邮  ( 不包括货到付款 )</span></li>
+					</ul>
+					<p><span>促销信息</span>
+						<i>满减促销：满299减10 满599减20 满999减50  限购3件</i>
+					</p>
+					<div class="heght_box">
+						<div class="goods-spec">
+							<ul class="goods_ul">
+								<li>
+									<span>尺码：
+										<a>39</a>
+										<a>40</a>
+										<a>41</a>
+										<a>42</a>
+										<a>43</a>
+										<a>44</a>
+									</span>
+								</li>
+								<li><span>颜色：<img src="../pro_img/min_img.jpg" alt=""></span></li>
+								<li><span>购买数量：<button class="btn1">-</button ><input type="text" value="1" class="btn btnNum btn-default"><button class="btn2">+</button></span></li>
+							</ul>
+							<div class="btnSize"><img src="../pro_img/cimaIcon.gif" alt=""></div>
+							<div class="showBox">
+								<div class="clfix">
+									<img src="../pro_img/cm_closebtn.png" alt="">
+								</div>
+							</div>
+							<a class="btnColl"></a>
+						</div>
+					</div>
+					<div class="sp"></div>
+					<div class="btnBar">
+						<span>
+							<span class="btnBar_span">
+								请选择<i>尺码、颜色</i>
+							</span>
+						</span>
+						<div class="btnsBox">
+							<input type="button" class="btn btn-warning btn-fastbuy" value="立即购买">
+							<input type="button" class="btn btn-danger btn-fastbuy" value="加入购物车">
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- p_main_b -->
+			<div class="p_main_b clearfix">
+				<!-- pro_main_b_top -->
+				<div class="pro_main_b_top">
+					<ul>
+						<li><span>商品详情</span></li>
+						<li><span>顾客评论</span></li>
+						<li><span>总销量</span></li>
+						<li><span>购买咨询</span></li>
+						<li><span>购买保证</span></li>
+						<li><span>放心退换货</span></li>
+						<li><span>常见问题</span></li>
+					</ul>
+				</div>
+				<!-- content -->
+				<div class="content">
+					<div class="commodity">
+						<a href=""><img src="../pro_img/erci1.jpg" alt=""></a>
+						<div class="pro_data"></div>
+						<div class="pro_data_content">
+							<img src="../pro_img/pro_1.jpg" alt="">
+							<img src="../pro_img/pro_2.jpg" alt="">
+							<img src="../pro_img/pro_3.jpg" alt="">
+							<img src="../pro_img/pro_4.jpg" alt="">
+							<img src="../pro_img/pro_5.jpg" alt="">
+							<img src="../pro_img/pro_6.png" alt="">
+							<img src="../pro_img/pro_7.jpg" alt="">
+						</div>
+					</div>
+					<div class="comment">
+						<img src="../pro_img/comment.png" alt="">
+					</div>
+					<div class="total_sales_volume">
+						<img src="../pro_img/r2_c2.png" alt="">
+					</div>
+					<div class="consult">
+						<img src="../pro_img/r2_c3.png" alt="">
+					</div>
+					<div class="guarantee">
+						<img src="../pro_img/viewgoodpic.jpg" alt="">
+					</div>
+					<div class="changing">
+						<img src="../pro_img/viewgoodpic2.jpg" alt="">
+					</div>
+					<div class="issue">
+						<img src="../pro_img/viewgoodpic3.jpg" alt="">
+					</div>
+				</div>
+				
+			</div>
+			<a href="../index.html"><img src="../pro_img/foot-goto-i.jpg" style="margin-top: 40px;" alt=""></a>
+		</div>
+	</div>
+
+	<div class="redLine"></div>
+	<div class="" style="width: 990px;margin: 0 auto;">
+		<div id="footer">
+				<div class="foot_p clearfix">
+					<ul>
+						<li><a href="">关于名鞋库</a></li>
+						<li><a href="">联系名鞋库</a></li>
+						<li><a href="">人才招聘</a></li>
+						<li><a href="">免责条款</a></li>
+						<li><a href="">法律声明</a></li>
+						<li><a href="">客户留言</a></li>
+						<li><a href="">意见反馈</a></li>
+						<li><a href="">全部分类</a></li>
+						<li><a href="">友情链接</a></li>
+						<li><a href="">鞋子尺码对照表</a></li>
+						<li><a href="">问答咨询评论主题</a></li>
+						<li><a href="">鞋子品牌大全</a></li>
+						<li><a href="">商品大全</a></li>
+					</ul>
+					<p>Copyright © 2008-2014 <span>s.cn</span> All Rights Reserved.     	<a href="">闽ICP备08106896号</a>     <a href="">经营许可证闽B2-20110061</a></p>
+				</div>
+			</div>
+		</div>
+</body>
+</html>

@@ -20,3 +20,5 @@ body { font-family: '微软雅黑'; font-size: 14px; background: #F6F6F6; }
 * { box-sizing: border-box; }
 
 .container { width: 1190px; margin: 0 auto; padding: 0; }
+
+.common { width: 980px; margin: 0 auto; }

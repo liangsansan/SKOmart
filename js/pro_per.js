@@ -8,25 +8,91 @@ $(function(){
 	 */
 	
 	$('.zoom').gdszoom({
-				position:'right',
-			});
+			position:'right',
+		});
 
-			$('.small-list').on('click','img',function(){
-				$('.zoom img').attr({
-					src:"../pro_img/f2.jpg",
-					'data-big':"../pro_img/f3.jpg"
-				});
-			})
-			
+		$('.small-list').on('click','img',function(){
+			$('.zoom img').attr({
+				src:"../pro_img/d1.jpg",
+				'data-big':"../pro_img/dd1.jpg"
+			});
+		})
+		
 	//移入
-	$small.on('mouseenter','img',function(){
-		$pro_maxImg.attr({
-			src:this.src,
-			'data-big':this.src
+	$('.small-list').on('mouseenter','img',function(){
+		$('.zoom img').attr({
+			src:"../pro_img/d1.jpg",
+			'data-big':"../pro_img/dd1.jpg"
 		});
 	})
-
-	$small.on('mouseleave','img',function(){
+	// 收藏
+	/*$('.btnColl').on('click',function(){
+		$(this).css({background:'url("../pro_img/pro_detial_icon1.png") no-repeat 0 -220px;'})
+	})*/
+	// $small.on('mouseleave','img',function(){
+	// 	})
+	
+	// 尺码选择
+	var res;
+	var val = $('.btnNum').val();
+	$('.goods_ul').on('click','a',function(){
+		$(this).css({border:'2px solid #f90'}).siblings().css({border:0})
+		res = $(this).html();
+		$('.btnBar_span').html(`您将购买<b>${val}</b>件&nbsp;&nbsp;<b>${res}</b>码&nbsp;&nbsp;黑色`)	
+		$('.btn1').on('click',function(){
+			val = $('.btnNum').val();
+			$('.btnBar_span').html(`您将购买<b>${val}</b>件&nbsp;&nbsp;<b>${res}</b>码&nbsp;&nbsp;黑色`)	
 		})
+		$('.btn2').on('click',function(){
+			val = $('.btnNum').val();
+			$('.btnBar_span').html(`您将购买<b>${val}</b>件&nbsp;&nbsp;<b>${res}</b>码&nbsp;&nbsp;黑色`);
+		})
+	})
 
+
+	// 尺码转换
+	$('.btnSize').on('click',function(){
+		$(this).hide();
+		$('.showBox').animate({right:1},500)
+	})
+	//关闭
+	$('.showBox').on('click','img',function(){
+		$('.showBox').animate({right:-340},500,function(){
+			$('.btnSize').show();
+		})
+	})
+
+	//商品详情切换
+	//添加高亮
+	/*$pro_main_b_top = $('.pro_main_b_top');
+	$pro_main_b_top.eq(0).addClass('li_highlight');
+	console.log($pro_main_b_top.eq(0));
+	$pro_main_b_top.on('click','li',function(){
+		$(this).addClass('li_highlight').siblings().removeClass('li_highlight');
+	})*/
+
+
+	var $tab = $('.p_main_b');
+	var $content = $tab.find('.content');
+	var $title = $tab.children('.pro_main_b_top');
+	// 显示第一张
+	$content.children().eq(0).show();
+	console.log($content.children().eq(0));
+	// 高亮第一个tab
+	$title.find('li').eq(0).addClass('li_highlight');
+	$list = $title.find('li');
+	// 绑定点击事件
+	$list.on('click',function(){
+		// 获取索引值
+		var idx = $(this).index();
+
+		// tab高亮
+		$(this).addClass('li_highlight').siblings().removeClass('li_highlight');
+
+
+		// 页面切换
+		// $content.children().hide().eq(idx).show();
+		// $content.children().hide().eq(idx).fadeIn(600);
+		$content.children().hide().eq(idx).show();
+	});
 })

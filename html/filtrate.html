@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>filtrate</title>
+	<link href="../img/favicon.ico" mce_href="../img/favicon.ico" rel="bookmark" type="image/x-icon" /> 
+	<link href="../img/favicon.ico" mce_href="../img/favicon.ico" rel="icon" type="image/x-icon" /> 
+	<link href="../img/favicon.ico" mce_href="../img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+	<link rel="stylesheet" href="../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/top.css">
+	<link rel="stylesheet" href="../css/filtrate.css">
+	<script src="../lib/jquery/jquery-3.1.1.js"></script>
+	<!-- <script src="../lib/common.js"></script> -->
+	<script src="../js/head.js"></script>
+	<script src="../js/filtrate.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded',function(){
+
+
+		var main = document.querySelector('.pro_main');
+		//1.创建xhr对象
+		var xhr = new XMLHttpRequest();
+
+		//4.处理数据
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState === 4){
+				var res = JSON.parse(xhr.responseText);
+				console.log(res);
+
+				
+
+				main.innerHTML = res.map((item)=>{
+					return `
+					<div class="product">
+						<div class="pro_fz_new">
+							<div class="pro_max_img">
+								<img src="filt_img/p2_1.jpg" alt="">
+							</div>
+							<ul class="title clearfix">
+								<li><a><img src="filt_img/p2_m1.jpg" alt=""></a></li>
+								<li><a><img src="filt_img/p2_m2.jpg" alt=""></a></li>
+								<li><a><img src="filt_img/p2_m3.jpg" alt=""></a></li>
+							</ul>
+							
+							<ul class="pro_introduce">
+								<li>现价：${item.price} <s>原价：${item.discount}</s></li>
+								<li>${item.title}</li>
+								<li>已售出 <i>${item.vbep}件</i></li>
+							</ul>
+						</div>
+					</div>`
+				}).join('');
+
+				var maxImg = document.querySelector('.pro_max_img');
+				var max_imgs = maxImg.querySelectorAll('img');
+				//console.log(max_imgs);
+				//console.log(max_imgs);
+				for (var i = 0; i < res.length; i++) {
+					var arr = res[i].maxImg.split(',');
+					console.log(arr);
+					for (var j = 0; j < arr.length; j++) {
+						console.log(arr[j])
+						var img = document.createElement('img');
+						img.src = arr[j];
+						maxImg.appendChild(img);
+					}
+				}
+				
+				
+
+			}
+		}
+
+		// 2)建立与服务器的连接
+		xhr.open('get','http://localhost/SKOmart/api/product.php',true);
+
+		// 3)发送
+		xhr.send();
+	})
+	</script>
+</head>
+<body>
+	<div class="topLink_back">
+		<div class="top_com">
+			<div id="topLink" class="clearfix" style="">
+				<ul>
+					<li><a href="html/login.html" target="_block">欢迎登录名鞋库</a></li>
+					<li>
+						<a href="html/enroll.html" target="_block">免费注册</a>
+						
+					</li>
+					<li class="topLink_3">
+						<a href="">我的名鞋库</a>
+						<div class="login">
+							<ul>
+								<li>我的订单</li>
+								<li>优惠券</li>
+								<li><a href="address.html">收货地址</a></li>
+							</ul>
+							<ul>
+								<li>我的积分</li>
+								<li>商品收藏</li>
+								<li>密码管理</li>
+							</ul>
+						</div>
+					</li>
+					<li class="topLink_4">
+						<a href="">手机名鞋库</a>
+						<div class="erwei">
+							<img src="../img/wei1.png" alt="">
+							<img src="../img/wei2.png" alt="">
+						</div>
+					</li>
+					<li><a href="">收藏名鞋库</a></li>
+					<li><a href="">名鞋库客服</a></li>
+					<li></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="top_b">
+		<div class="container">
+			<div id="top">
+				<div class="top_left" class="clearfix"></div>
+				<div class="top_right">
+					<div class="topr_left">
+						<form action="#">
+							<div class="sbox">
+								<input type="text" value="篮球鞋" class="form-control">
+								<button class="btn btn-default">搜索</button>
+							</div>
+							<p>
+								<span><a href="">热搜:</a></span>
+								<span><a href="">耐克</a></span>
+								<span><a href="">阿迪</a></span>
+								<span><a href="">新品</a></span>
+								<span><a href="">帆布鞋</a></span>
+								<span><a href="">跑步鞋</a></span>
+								<span><a href="">篮球鞋</a></span>
+								<span><a href="">外套</a></span>
+							</p>
+						</form>
+					</div>
+					<div class="topr_right">
+						<div class="topr_right_a">
+							<a href="#">
+								<i class="glyphicon glyphicon-lock"></i>
+								购物车
+								<b class="topr_rightb">0</b>
+								件
+							</a>
+						</div>	
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="nav" class="clearfix">
+		<div class="container">
+			<div class="nav_p">
+				所有商品分类
+				<ul class="nav_p_ul">
+					<li class="nav_Sport">
+						<a href="">运动休闲鞋</a>
+						<div class="Sport">
+							<div class="Sport_1">
+								<h3>
+									<i><a href=""><img src="../img/xie1.png" alt=""></a></i>
+									<span><a href="">更多</a></span>
+								</h3>
+								<ul>
+									<li><a href="">休闲鞋</a></li>
+									<li><a href="">帆布鞋</a></li>
+									<li><a href="">板鞋</a></li>
+									<li><a href="">训练鞋</a></li>
+									<li><a href="">网球鞋</a></li>
+								</ul>
+							</div>
+							<div class="Sport_2"></div>
+							<div class="Sport_3"></div>
+							<div class="Sport_4"></div>
+						</div>
+					</li>
+					<li><a href="">运动休闲服</a></li>
+					<li><a href="">跑步</a></li>
+					<li><a href="">篮球</a></li>
+					<li><a href="">足球</a></li>
+					<li><a href="">包包/配件</a></li>
+					<li><a href="">户外</a></li>
+					<li><a href="">男鞋/女鞋</a></li>
+					<li><a href="">童鞋</a></li>
+				</ul>
+			</div>
+			<div class="nav_ul">
+				<ul>
+					<li class="nav_ul_1"><a href="">首页</a></li>
+					<li class="nav_ul_2"><a href="">男子运动</a>
+					<div class="nav_Men">
+						<ul>
+							<h3>运动鞋</h3>
+							<li><a href="">休闲鞋</a></li>
+							<li><a href="">板鞋</a></li>
+							<li><a href="">跑步鞋</a></li>
+							<li><a href="">帆布鞋</a></li>
+							<li><a href="">拖鞋</a></li>
+							<li><a href="">篮球鞋</a></li>
+							<li><a href="">足球鞋</a></li>
+							<li><a href="">赛车鞋</a></li>
+							<li><a href="">网球鞋</a></li>
+							<li><a href="">溯溪鞋</a></li>
+						</ul>
+						<ul>
+							<h3>服装</h3>
+							<li><a href="">短袖T恤</a></li>
+							<li><a href="">短袖POLO</a></li>
+							<li><a href="">运动长裤</a></li>
+							<li><a href="">运动短裤</a></li>
+							<li><a href="">休闲裤</a></li>
+							<li><a href="">卫衣</a></li>
+							<li><a href="">外套</a></li>
+						</ul>
+						<i><img src="../img/nav1.png" alt=""></i>
+					</div>
+					</li>
+					<li class="nav_ul_3"><a href="">女子运动</a>
+					<div class="nav_WoMen">
+						<ul>
+							<h3>运动鞋</h3>
+							<li><a href="">休闲鞋</a></li>
+							<li><a href="">板鞋</a></li>
+							<li><a href="">跑步鞋</a></li>
+							<li><a href="">帆布鞋</a></li>
+							<li><a href="">拖鞋</a></li>
+							<li><a href="">篮球鞋</a></li>
+							<li><a href="">足球鞋</a></li>
+						</ul>
+						<ul>
+							<h3>服装</h3>
+							<li><a href="">短袖T恤</a></li>
+							<li><a href="">短袖POLO</a></li>
+							<li><a href="">运动长裤</a></li>
+							<li><a href="">运动短裤</a></li>
+							<li><a href="">休闲裤</a></li>
+							<li><a href="">卫衣</a></li>
+							<li><a href="">外套</a></li>
+						</ul>
+						<i><img src="../img/nav1.png" alt="">
+						</i>
+					</div>
+					</li>
+					<li><a href="">儿童</a></li>
+					<li><a href="">男鞋</a></li>
+					<li><a href="">户外</a></li>
+					<li class="weixin"><img src="../img/weixin.png" alt="">
+					<span><img src="../img/weixinma.png" alt=""></span>
+					</li>
+				</ul>
+			</div>
+			<div class="nav_right">
+				<ul>
+					<li><a href="">上新区</a></li>
+					<li><a href="">即将售完</a></li>
+					<li><a href="">逢八必杀</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="filt_main" class=" clearfix">
+		<div class="warp clearfix">
+			<div class="n_bar">
+				<p>正品鞋、服装、包包 <span>共有<i>133个</i>商品</span></p>
+			</div>
+		</div>
+		<div class="f_size_dl">
+			<div class="pro_type">
+			<span>类别：</span>
+				<ul class=" clearfix">
+					<li><a href="">鞋子</a></li>
+					<li><a href="">服装</a></li>
+					<li><a href="">包包</a></li>
+					<li><a href="">配件</a></li>
+				</ul>
+			</div>
+			<div class="pro_brand">
+				<span>品牌：</span>
+				<ul class=" clearfix">
+					<li><a href="" title="耐克"></a></li>
+					<li><a href="" title="阿迪"></a></li>
+					<li><a href="" title="New Balance"></a></li>
+					<li><a href="" title="安踏"></a></li>
+					<li><a href="" title="耐克"></a></li>
+					<li><a href="" title="李宁"></a></li>
+					<li><a href="" title="李宁"></a></li>
+					<li><a href="" title="NEO"></a></li>
+					<li><a href="" title="三叶草"></a></li>
+					<li><a href="" title="锐步"></a></li>
+					<li><a href="" title="斯凯奇"></a></li>
+					<li><a href="" title="ASICS"></a></li>
+					<li><a href="" title="Kappa"></a></li>
+					<li><a href="" title="朗蒂维"></a></li>
+				</ul>
+			</div>
+			<div class="pro_classes clearfix">
+				<span>类别：</span>
+				<ul class=" clearfix">
+					<li><a href="">跑步鞋</a></li>
+					<li><a href="">休闲鞋</a></li>
+					<li><a href="">篮球鞋</a></li>
+					<li><a href="">板鞋</a></li>
+					<li><a href="">户外鞋</a></li>
+					<li><a href="">帆布鞋</a></li>
+					<li><a href="">足球鞋</a></li>
+					<li><a href="">T恤</a></li>
+					<li><a href="">POLO衫</a></li>
+					<li><a href="">运动裤</a></li>
+					<li><a href="">背心</a></li>
+					<li><a href="">双肩包</a></li>
+
+					<li><a href="">凉鞋</a></li>
+					<li><a href="">单肩包</a></li>
+					<li><a href="">腰包</a></li>
+					<li><a href="">裙</a></li>
+					<li><a href="">套装</a></li>
+					<li><a href="">训练鞋</a></li>
+					<li><a href="">溯溪鞋</a></li>
+					<li><a href="">靴子</a></li>
+					<li><a href="">手拎包</a></li>
+					<li><a href="">帽子</a></li>
+					<li><a href="">袜子</a></li>
+					<li><a href="">足球</a></li>
+					<li><a href="">手套</a></li>
+					<li><a href="">护腿板</a></li>
+					<li><a href="">手臂包</a></li>
+					<li><a href="">拖鞋</a></li>
+					<li><a href="">夹克</a></li>
+					<li><a href="">棉服</a></li>
+					<li><a href="">羽绒服</a></li>
+					<li><a href="">卫衣</a></li>
+					<li><a href="">外套</a></li>
+				</ul>
+				<div class="more">更多</div>
+				<div class="pack_up">收起</div>
+			</div>
+			<div class="pro_gender">
+				<span>性别：</span>
+				<ul class=" clearfix">
+					<li><a href="">男</a></li>
+					<li><a href="">女</a></li>
+					<li><a href="">情侣</a></li>
+				</ul>
+			</div>
+			<div class="pro_size">
+				<span>尺码：</span>
+				<ul class=" clearfix">
+					<li><a href="">35</a></li>
+					<li><a href="">35.5</a></li>
+					<li><a href="">36</a></li>
+					<li><a href="">36.5</a></li>
+					<li><a href="">37</a></li>
+					<li><a href="">37.5</a></li>
+					<li><a href="">38</a></li>
+					<li><a href="">8.5</a></li>
+					<li><a href="">39</a></li>
+					<li><a href="">39.5</a></li>
+					<li><a href="">40</a></li>
+					<li><a href="">40.5</a></li>
+					<li><a href="">41</a></li>
+					<li><a href="">41.5</a></li>
+					<li><a href="">42</a></li>
+					<li><a href="">42.5</a></li>
+					<li><a href="">43</a></li>
+					<li><a href="">43.5</a></li>
+					<li><a href="">44</a></li>
+					<li><a href="">44.5</a></li>
+					<li><a href="">45</a></li>
+					<li><a href="">45.5</a></li>
+					<li><a href="">46</a></li>
+					<li><a href="">46.5</a></li>
+					<li><a href="">47</a></li>
+					<li><a href="">47.5</a></li>
+					<li><a href="">48</a></li>
+					<li><a href="">48.5</a></li>
+					<li><a href="">49</a></li>
+					<li><a href="">49.5</a></li>
+					<li><a href="">50</a></li>
+					<li><a href="">2XS</a></li>
+				</ul>
+			</div>
+			<div class="pro_price">
+				<span>价格：</span>
+				<ul class="clearfix">
+					<li><a href="">0-99元</a></li>
+					<li><a href="">100-199元</a></li>
+					<li><a href="">200-299元</a></li>
+					<li><a href="">300-399元</a></li>
+					<li><a href="">400-499元</a></li>
+					<li><a href="">500-599元</a></li>
+					<li><a href="">600-699元</a></li>
+				</ul>
+			</div>
+
+			<div class="pro_series clearfix">
+				<span>系列：</span>
+				<ul>
+					<li><a href="">AIR MAX</a></li>
+					<li><a href="">ROSHERUN</a></li>
+					<li><a href="">赤足</a></li>
+					<li><a href="">ACE</a></li>
+					<li><a href="">AIR FORCE</a></li>
+					<li><a href="">AIR MAX 1</a></li>
+					<li><a href="">AIR MAX 90</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="more_pack_up">
+			<div class="unfold">展开</div>
+			<div class="up">收起</div>
+		</div>
+		<div class="pro_main"></div>
+	</div>
+	
+</body>
+</html>

@@ -9,6 +9,31 @@
 	<link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/index.css">
 	<link rel="stylesheet" href="css/footer.css">
+	<style>
+		 #position{
+            position: absolute;
+            bottom: 0;
+            right:50%;
+            margin: 0;
+            background: #000;
+            opacity: 0.4;
+            width: 400px;
+            text-align: center;
+        }
+        #position li{
+            width: 10px;
+            height: 10px;
+            margin:0 2px;
+            display: inline-block;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+            background-color: #afafaf;
+        }
+        #position .cur{
+            background-color: #ff0000;
+            cursor:pointer
+        }
+	</style>
 	<script src="lib/jquery/jquery-3.1.1.js"></script>
 	<script src="lib/common.js"></script>
 	<script src="js/head.js"></script>
@@ -210,13 +235,55 @@
 			<li><img src="img/002.jpg"></li>
 			<li><img src="img/003.jpg"></li>
 			<li><img src="img/004.jpg"></li>
-
-			<li><img src="img/001.jpg"></li>
-			<li><img src="img/002.jpg"></li>
-			<li><img src="img/003.jpg"></li>
-			<li><img src="img/004.jpg"></li>
-		</ul>
+ 	</ul>
+		<ul id="position">
+            <li class="cur"></li>
+            <li class=""></li>
+            <li class=""></li>
+            <li class=""></li>
+        </ul>
 	</div>
+	<script>
+		$(function(){
+            // $(function(){
+			    //第一张显示 
+			    $(".banner_ul li").eq(0).show();
+
+			    鼠标滑过手动切换，淡入淡出
+			    $("#position li").mouseover(function() {
+			        $(this).addClass('cur').siblings().removeClass("cur");
+			        var index = $(this).index();
+			        i = index;
+			        $(".banner_ul li").eq(index).show().siblings().hide();
+			        $(".banner_ul li").eq(index).fadeIn(200).siblings().fadeOut(200);
+			    });
+			    //自动轮播
+			    var i=0;
+			    var timer = setInterval(function(){
+			        i++;
+			        i = i > 3 ? 0 : i ;
+			        $("#position li").eq(i).addClass('cur').siblings().removeClass("cur");
+			        $(".banner_ul li").eq(i).fadeIn(200).siblings().fadeOut(200);
+			    },3000);
+			    
+			    
+			    // 鼠标移入移出效果
+			    $("#banner").mouseover(function() {
+			        clearInterval(timer);
+			    })
+			    $("#banner").mouseout(function() {
+			        var timer = setInterval(function(){
+			            i++;
+			            i = i > 3 ? 0 : i ;
+			            $("#position li").eq(i).addClass('cur').siblings().removeClass("cur");
+			            $(".banner_ul li").eq(i).fadeIn(200).siblings().fadeOut(200);
+			        },3000);
+			    });
+			
+            
+           
+        })
+	</script>
 	<div class="container">
 		<div id="main">
 			<div class="main_h2">
