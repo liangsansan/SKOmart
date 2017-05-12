@@ -95,4 +95,40 @@ $(function(){
 		// $content.children().hide().eq(idx).fadeIn(600);
 		$content.children().hide().eq(idx).show();
 	});
+
+
+	var pop = document.querySelector('.pop');
+	console.log(pop)
+	// 定位到居中位置
+	setCenter();
+
+	// 当浏览器窗口大小改变时，触发onresize事件
+	window.onresize = function(){
+		setCenter();
+	}
+
+
+	// 滚动事件
+	window.onscroll = function(){
+		setCenter();
+	}
+
+	function setCenter(){
+		pop.style.left = window.scrollX + (window.innerWidth - 600)/2 + 'px';
+		pop.style.top = window.scrollY + (window.innerHeight - 200)/2 + 'px';
+	}
+
+
+	// 加入购物车
+	$('.btn-danger').on('click',function(){
+		console.log(1);
+		$('.pop').css({width:412,height:172,display:'block'})
+	})
+	//隐藏窗口
+	$('.pop_p').on('click','span',function(){
+		console.log(123);
+		$('.pop').animate({width:1,height:1},1000,function(){
+			$('.pop').css({display:'none'})
+		});
+	})
 })

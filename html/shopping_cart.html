@@ -3,8 +3,101 @@
 <head>
 	<meta charset="UTF-8">
 	<title>购物车</title>
+	<link rel="stylesheet" href="../lib/bootstrap-3.3.7-dist/css/bootstrap.css">
 	<link rel="stylesheet" href="../css/shopping_cart.css">
 	<script src="../lib/jquery/jquery-3.1.1.js"></script>
+	<script src="../lib/common.js"></script>
+	<script>
+		$(function(){
+			/*
+				1）获取cookie
+				2）把cookie中的商品信息写入#carList
+				3）计算总价
+				4）清空购物车
+					清除cookie
+			 */
+			var cart_tb_body = document.querySelector('.cart_tb_body');
+			var empty = document.querySelector('.empty');
+			var price = document.querySelector('.price');
+			var por_sl = document.querySelector('.por_sl');
+			// 1）获取cookie
+			var goodslist = getCookie('carlist');
+			// 把json字符串转换成js对象
+			goodslist = goodslist ? JSON.parse(goodslist) : [];
+
+
+			// 总价
+			var totalPrice = 0;
+			
+	 		var qty;
+
+	 		// 2）把cookie中的商品信息写入.cart_tb_body
+			cart_tb_body.innerHTML = goodslist.map(function(item){
+				var price = item.price;
+				qty = item.qty;
+				totalPrice += price * qty;
+
+				return `<ul class="clearfix" data-guid="${item.guid}">
+						<li><a href=""><img src="${item.imgurl}" alt=""></a></li>
+						<li>${item.name}<br><i>( ${item.span} )</i></li>
+						<li>0</li>
+						<li class="price">${item.price}</li>
+						<li>${item.qty}</li>
+						<li>-</li>
+						<li>${totalPrice}</li>
+						<span class="btn-close">&times;</span>
+					</ul>`;
+			}).join('');
+			// 把ul写入#carList
+			// carList.appendChild(ul);
+
+			// 写入总价
+			price.innerHTML = totalPrice.toFixed(2);
+
+			if (qty === undefined) {
+				por_sl.innerHTML = 0;
+			}else{
+				por_sl.innerHTML = qty;
+			}
+			
+			// 清空购物车
+			empty.onclick = function(){
+				removeCookie('carlist');
+
+				// 刷新页面
+				location.reload();
+			}
+
+
+
+			// 删除单个商品
+			// 移除DOM节点
+			// 清除cookie中对应的商品信息
+			cart_tb_body.onclick = function(e){
+				e = e || window.event;
+				var target = e.target || e.srcElement;
+
+				if(target.className === 'btn-close'){
+					var currentLi = target.parentNode;
+					var currentGUID = currentLi.getAttribute('data-guid');
+
+					// 移除DOM节点
+					currentLi.parentNode.removeChild(currentLi);
+
+					// 清除cookie中对应的商品信息
+					for(var i=0;i<goodslist.length;i++){
+						if(goodslist[i].guid === currentGUID){
+							goodslist.splice(i,1);
+							break;
+						}
+					}
+
+					// 删除后重写cookie
+					setCookie('carlist',JSON.stringify(goodslist));
+				}
+			}
+		})
+	</script>
 </head>
 <body>
 	<div class="cart_top clearfix">
@@ -41,14 +134,35 @@
 				<div class="warp_right_left">
 					<a href=""><img src="../img/re.png" alt=""></a>
 				</div>
-				<div class="warp_right_right">
-					
+			</div>
+			<img src="../pro_img/02.jpg" alt="">
+			<div class="check_wrap clearfix">
+				<h3>订单信息</h3>
+				<div class="goodslist">
+					<div class="cart_tb_head">
+						<ul class="clearfix">
+							<li>商品信息</li>
+							<li>赠送积分</li>
+							<li>销售价格</li>
+							<li>数量</li>
+							<li>折扣/优惠</li>
+							<li>小计</li>
+						</ul>
+					</div>
+					<div class="cart_tb_body">
+					</div>
+					<p class="empty"><a href="">清空购物车</a></p>
+					<p>商品数量：<i class="por_sl"></i> 件</p>
+					<div class="cart_checkout">
+						<p>商品原总价：	<i class="price">￥269.00</i></p>
+						<button class="btn btn-warning">确认，提交订单</button>
+					</div>
 				</div>
 			</div>
 		</div>
 		<div class="red" style="margin-top: 20px;"></div>
 		<div id="footer">
-			<div class="foot_p clearfix">
+			<div class="foot_p clearfix"	>
 				<ul>
 					<li><a href="">关于名鞋库</a></li>
 					<li><a href="">联系名鞋库</a></li>

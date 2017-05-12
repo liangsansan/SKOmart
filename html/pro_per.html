@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>商品详情</title>
 	<link href="../img/favicon.ico" mce_href="../img/favicon.ico" rel="bookmark" type="image/x-icon" /> 
 	<link href="../img/favicon.ico" mce_href="../img/favicon.ico" rel="icon" type="image/x-icon" /> 
 	<link href="../img/favicon.ico" mce_href="../img/favicon.ico" rel="shortcut icon" type="image/x-icon" /> 
@@ -13,6 +13,7 @@
 	<script src="../lib/jquery.gdszoom.js"></script>
 	<script src="../js/head.js"></script>
 	<script src="../js/pro_per.js"></script>
+	<script src="../lib/common.js"></script>
 	<script>
 		document.addEventListener('DOMContentLoaded',function(){
 			var btnNum = document.querySelector('.btnNum');
@@ -32,6 +33,77 @@
 				_num++;
 				btnNum.value = _num++; 
 			}
+
+			/*
+				购物车商品列表
+				1）把商品信息写入cookie
+					* 利用数组、对象实现多个商品信息的写入
+				
+				###注意：cookie只能保存字符串
+					*把对象/数组转换字符串（json字符串）
+
+				2）在car.html页面获取cookie
+
+
+				* json字符串的格式要求：
+					* 属性名必须使用双引号
+					* 字符串必须使用双引号
+					* json字符串中不能含有注释
+					* 属性值只能是：字符串、数字、布尔值、对象、数组
+				* 把对象/数组转换成json字符串
+					* JSON.stringify(obj)
+				* 把json字符串转换成对象
+					* JSON.parse(json)
+			 */
+			
+
+			// 获取页面元素btnsBox
+			var _btn = document.querySelector('#qwer');
+			var btnsBox = document.querySelector('.btnsBox');
+			var nake = document.querySelector('.nake');
+			var jiage = document.querySelector('.jiage');
+			var zoomImg = document.querySelector('.zoomImg');
+			var btnNum = document.querySelector('.btnNum');
+			var btnBar_span = document.querySelector('.btnBar_span');
+			// 保存购物车所有商品信息
+			// 获取原cookie中的值
+			var carlist = getCookie('carlist');
+
+			carlist = carlist ? JSON.parse(carlist) : [];
+
+			// console.log(carlist)
+
+			_btn.onclick = function(){
+				var currentGUID = btnsBox.getAttribute('data-guid');
+				var btnNumVal = btnNum.getAttribute('value');
+				// cookie中是否存在当前商品
+				var hasGoods = false;
+				for(var i=0;i<carlist.length;i++){
+					if(carlist[i].guid === currentGUID){
+						hasGoods = true;
+
+						// 如果当前商品已经存在cookie中，则商品数量+1
+						carlist[i].qty++;
+						break;
+					}
+				}
+				if(!hasGoods){
+					
+					var _btn = {
+						guid:currentGUID,
+						name:nake.innerText,
+						span:btnBar_span.innerText,
+						price:jiage.innerText,
+						imgurl:zoomImg.src,
+						qty:btnNum.value
+					};
+
+					// 把当前商品信息写入carlist
+					carlist.push(_btn);
+				}
+				setCookie('carlist',JSON.stringify(carlist));
+			}
+
 		})
 	</script>
 </head>
@@ -231,7 +303,7 @@
 					<div class="pro_img">
 						<!-- 大图 -->
 						<div class="zoom">
-								<img src="../pro_img/d1.jpg" data-big="../pro_img/dd1.jpg">
+								<img class="zoomImg" src="../pro_img/d1.jpg" data-big="../pro_img/dd1.jpg">
 						</div>
 						<!-- 小图 -->
 						<ul class="small-list">
@@ -248,11 +320,11 @@
 				</div>
 				<div class="pro_mtop_r">
 					<div class="pro_title">
-						<h4>耐克Nike2017新款男鞋跑步鞋运动鞋跑步852461-005 <span><a href="">更多<i>耐克</i></a></span></h4>
+						<h4 class="nake">耐克Nike2017新款男鞋跑步鞋运动鞋跑步852461-005 <span><a href="">更多<i>耐克</i></a></span></h4>
 					</div>
 					<ul>
-						<li>吊  牌  价：<span>￥849.00</span></li>
-						<li>销  售  价：<b> ￥629.00</b><span> ( 7.4折 )   立省： ￥220.00</span></li>
+						<li>原  售  价：<span>￥849.00</span></li>
+						<li>销  售  价：<b>￥</b><b class="jiage">629.00</b><span> ( 7.4折 )   立省： ￥220.00</span></li>
 						<li>好  评  度：<span>  4.7分   (已有3人评论)</span></li>
 						<li>运&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;费：<span>名鞋库会员满399包邮  ( 不包括货到付款 )</span></li>
 					</ul>
@@ -291,10 +363,32 @@
 								请选择<i>尺码、颜色</i>
 							</span>
 						</span>
-						<div class="btnsBox">
-							<input type="button" class="btn btn-warning btn-fastbuy" value="立即购买">
+						<div class="btnsBox"  data-guid="g01">
+							<a href="shopping_cart.html" target="_block"><input type="button" class="btn btn-warning btn-fastbuy" id="qwer" value="立即购买"></a>
 							<input type="button" class="btn btn-danger btn-fastbuy" value="加入购物车">
 						</div>
+					</div>
+					<div class="pop">
+						<p class="pop_p clearfix">
+							<span>&times;</span>
+						</p>
+						<div class="pop_main clearfix">
+							<div class="pop_atuo">
+								<div class="pop_img">
+									<img src="filt_img/buy.jpg" alt="">
+								</div>
+								<div class="pop_content">
+									<p>您选购的商品已经添加到购物车中</p>
+									<p>购物车共 有 <i class="pop_account"></i> 件商品，合计:<b>￥</b><b class="price"></b></p>
+									<div style="padding-top:20px">
+										<button class="btn btn-danger"><a href="shopping_cart.html">立即结算</a></button>
+										<span><a href="pro_per.html" class="aaa">继续购物»»</a></span>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+
 					</div>
 				</div>
 			</div>

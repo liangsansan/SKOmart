@@ -287,6 +287,60 @@
 					}
 				}
 			}
+			.pop{
+				width:412px;
+				height:172px;
+				background:#fff;
+				position: absolute;
+				left:0;top:0;
+				border:6px solid #ccc;
+				>p{
+					height: 24px;
+					span{
+						float:right;
+						margin-right: 5px;
+						margin-top: 5px;
+						color:#fff;
+						display:inline-block;
+						width: 15px;
+						height: 15px;
+						background:#e0e0e0;
+						text-align: center;
+						line-height: 15px;
+						cursor:pointer;
+					}
+				}
+				.pop_main{
+					padding: 10px;
+					.pop_atuo{
+						padding-left: 25px;
+						.pop_img{
+							float:left;
+							padding-right: 25px;
+							height: 100px;
+						}
+						.pop_content{
+							float:left;
+							font-size: 12px;
+							p:first-child{
+								color:red;
+								padding-bottom: 5px;
+							}
+							button{
+								>a{
+									display:inline-block;
+									width: 72px;
+									color:#fff;
+									text-decoration: none;
+								}
+							}
+							span{
+								padding-left: 20px;
+							}
+						}
+					}
+				}
+			}
 	   		
 		}
 

@@ -261,6 +261,7 @@ body{
 					width: 34px;
 				    height: 29px;
 				    text-align: left;
+
 					a{
 						cursor: default;
 					    display: inline-block;
@@ -281,6 +282,9 @@ body{
 				li{
 				    font-size: 12px;
 				    line-height: 20px;
+				    &:nth-child(2){
+				    	height: 40px;
+				    }
 				}
 			}
 		}

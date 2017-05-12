@@ -123,3 +123,5 @@ body { background: #fff; }
 #filt_main .product .pro_fz_new .pro_introduce { padding: 5px 5px 5px 10px; height: 83px; z-index: 111; overflow: hidden; width: 210px; position: absolute; }
 
 #filt_main .product .pro_fz_new .pro_introduce li { font-size: 12px; line-height: 20px; }
+
+#filt_main .product .pro_fz_new .pro_introduce li:nth-child(2) { height: 40px; }

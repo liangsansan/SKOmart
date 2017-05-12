@@ -195,7 +195,7 @@ body { font-family: '微软雅黑'; font-size: 14px; background: #F6F6F6; }
 #nav .nav_right ul li a { color: #fff; padding: 0 10px; font-size: 12px; }
 
 /* banner => 轮播图 */
-#banner { width: 1600px; height: 550px; margin: 0 auto; background: #C5F7D4; overflow: hidden; position: relative; }
+#banner { width: 1600px; height: 550px; margin: 0 auto; overflow: hidden; position: relative; }
 
 #banner .banner_ul { position: relative; width: 1600px; height: 550px; }
 

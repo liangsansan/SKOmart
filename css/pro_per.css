@@ -302,6 +302,26 @@ body { font-family: '微软雅黑'; font-size: 14px; background: #F6F6F6; }
 
 #pro_main .p_main_t .pro_mtop_r .btnBar .btnsBox .btn-fastbuy { float: left; width: 137px; height: 44px; margin-right: 10px; font-size: 20px; }
 
+#pro_main .p_main_t .pro_mtop_r .pop { width: 412px; height: 172px; background: #fff; position: absolute; left: 0; top: 0; border: 6px solid #ccc; }
+
+#pro_main .p_main_t .pro_mtop_r .pop > p { height: 24px; }
+
+#pro_main .p_main_t .pro_mtop_r .pop > p span { float: right; margin-right: 5px; margin-top: 5px; color: #fff; display: inline-block; width: 15px; height: 15px; background: #e0e0e0; text-align: center; line-height: 15px; cursor: pointer; }
+
+#pro_main .p_main_t .pro_mtop_r .pop .pop_main { padding: 10px; }
+
+#pro_main .p_main_t .pro_mtop_r .pop .pop_main .pop_atuo { padding-left: 25px; }
+
+#pro_main .p_main_t .pro_mtop_r .pop .pop_main .pop_atuo .pop_img { float: left; padding-right: 25px; height: 100px; }
+
+#pro_main .p_main_t .pro_mtop_r .pop .pop_main .pop_atuo .pop_content { float: left; font-size: 12px; }
+
+#pro_main .p_main_t .pro_mtop_r .pop .pop_main .pop_atuo .pop_content p:first-child { color: red; padding-bottom: 5px; }
+
+#pro_main .p_main_t .pro_mtop_r .pop .pop_main .pop_atuo .pop_content button > a { display: inline-block; width: 72px; color: #fff; text-decoration: none; }
+
+#pro_main .p_main_t .pro_mtop_r .pop .pop_main .pop_atuo .pop_content span { padding-left: 20px; }
+
 #pro_main .p_main_b { margin-top: 100px; }
 
 #pro_main .p_main_b .pro_main_b_top { height: 38px; display: block; }

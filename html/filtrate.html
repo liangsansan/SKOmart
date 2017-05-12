@@ -17,7 +17,17 @@
 		document.addEventListener('DOMContentLoaded',function(){
 
 
-		var main = document.querySelector('.pro_main');
+
+		// 当前分页
+		var pageNo = 1;
+
+		// 每页显示数量
+		var qty = 8;
+
+		// 分页总数
+		var pageLen;
+
+		// var main = document.querySelector('.pro_main');
 		//1.创建xhr对象
 		var xhr = new XMLHttpRequest();
 
@@ -25,57 +35,70 @@
 		xhr.onreadystatechange = function(){
 			if(xhr.readyState === 4){
 				var res = JSON.parse(xhr.responseText);
-				console.log(res);
 
-				
-
-				main.innerHTML = res.map((item)=>{
-					return `
+				res.map((item)=>{
+					var _html = `
 					<div class="product">
 						<div class="pro_fz_new">
 							<div class="pro_max_img">
-								<img src="filt_img/p2_1.jpg" alt="">
 							</div>
 							<ul class="title clearfix">
-								<li><a><img src="filt_img/p2_m1.jpg" alt=""></a></li>
-								<li><a><img src="filt_img/p2_m2.jpg" alt=""></a></li>
-								<li><a><img src="filt_img/p2_m3.jpg" alt=""></a></li>
 							</ul>
 							
 							<ul class="pro_introduce">
 								<li>现价：${item.price} <s>原价：${item.discount}</s></li>
 								<li>${item.title}</li>
 								<li>已售出 <i>${item.vbep}件</i></li>
+								<li>${item.size}</li>
 							</ul>
 						</div>
-					</div>`
-				}).join('');
+					</div>`;
 
-				var maxImg = document.querySelector('.pro_max_img');
-				var max_imgs = maxImg.querySelectorAll('img');
-				//console.log(max_imgs);
-				//console.log(max_imgs);
-				for (var i = 0; i < res.length; i++) {
-					var arr = res[i].maxImg.split(',');
-					console.log(arr);
+					var $html = $(_html);
+					var maxImg = $('.pro_max_img', $html);
+					// var max_imgs = $('img', maxImg);
+					var arr = item.maxImg.split(',');
+				
 					for (var j = 0; j < arr.length; j++) {
-						console.log(arr[j])
-						var img = document.createElement('img');
-						img.src = arr[j];
-						maxImg.appendChild(img);
+						// var img = document.createElement('img');
+						// img.src = arr[j];
+						// maxImg.appendChild(img);
+						$('<img />').attr('src', arr[j]).appendTo(maxImg);
 					}
-				}
-				
-				
+					$html.appendTo('.pro_main');
 
+					var title = $('.title', $html);
+					var arr = item.minImg.split(',');
+					for (var j = 0; j < arr.length; j++) {
+						var $lis = $('<li />').appendTo(title);
+						var $liA = $('<a />').appendTo($lis);
+						$('<img />').attr('src', arr[j]).appendTo($liA);
+					}	
+				});
+				// pageNo++;
 			}
 		}
 
 		// 2)建立与服务器的连接
-		xhr.open('get','http://localhost/SKOmart/api/product.php',true);
+		xhr.open('get','http://localhost/SKOmart/api/product.php?pageNo=' + pageNo,true);
 
 		// 3)发送
 		xhr.send();
+
+		// 滚动加载更多
+		window.onscroll = ()=>{
+			// 如何判断滚动到底部？
+			var scrollTop = window.scrollY;//document.body.scrollTop/document.documentElement.scrollTop
+			//判断接近底部时
+			if(scrollTop >= $('.product').offsetHeight - window.innerHeight - 100){
+				if(pageNo<=pageLen){
+					
+					xhr.open('get','http://localhost/SKOmart/api/product.php?pageNo=' + pageNo,true);
+					xhr.send();
+				}
+				
+			}
+		}
 	})
 	</script>
 </head>
@@ -417,7 +440,7 @@
 			<div class="unfold">展开</div>
 			<div class="up">收起</div>
 		</div>
-		<div class="pro_main"></div>
+		<div class="pro_main clearfix"></div>
 	</div>
 	
 </body>

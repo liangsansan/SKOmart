@@ -39,7 +39,23 @@
 	<script src="js/head.js"></script>
 	<script src="js/fade.js"></script>
 	<script src="js/index.js"></script>
-	
+	<script>
+		document.addEventListener('DOMContentLoaded',function(){
+			/*
+				1）获取cookie
+				2）把cookie中的商品信息写入#carList
+				3）计算总价
+				4）清空购物车
+					清除cookie
+			 */
+			var $list_a = $('.list_a');
+			// 1）获取cookie
+			var goodslist = getCookie('username');
+			
+			$list_a.html(goodslist);
+
+		})
+	</script>
 	
 </head>
 <body>
@@ -47,7 +63,7 @@
 		<div class="container">
 			<div id="topLink" class="clearfix" style="">
 				<ul>
-					<li><a href="html/login.html" target="_block">欢迎登录名鞋库</a></li>
+					<li><a href="html/login.html" target="_block" class="list_a">欢迎登录名鞋库</a></li>
 					<li>
 						<a href="html/enroll.html" target="_block">免费注册</a>
 						
@@ -236,20 +252,20 @@
 			<li><img src="img/003.jpg"></li>
 			<li><img src="img/004.jpg"></li>
  	</ul>
-		<ul id="position">
-            <li class="cur"></li>
-            <li class=""></li>
-            <li class=""></li>
-            <li class=""></li>
-        </ul>
+		<!-- <ul id="position">
+		            <li class="cur"></li>
+		            <li class=""></li>
+		            <li class=""></li>
+		            <li class=""></li>
+		        </ul> -->
 	</div>
-	<script>
+	<!-- <script>
 		$(function(){
-            // $(function(){
+	            // $(function(){
 			    //第一张显示 
 			    $(".banner_ul li").eq(0).show();
-
-			    鼠标滑过手动切换，淡入淡出
+	
+			    // 鼠标滑过手动切换，淡入淡出
 			    $("#position li").mouseover(function() {
 			        $(this).addClass('cur').siblings().removeClass("cur");
 			        var index = $(this).index();
@@ -280,10 +296,10 @@
 			        },3000);
 			    });
 			
-            
-           
-        })
-	</script>
+	            
+	           
+	        })
+	</script> -->
 	<div class="container">
 		<div id="main">
 			<div class="main_h2">

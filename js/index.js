@@ -104,4 +104,16 @@ $(function(){
 	$main_1F_right.on('mouseleave','a',function(){
 		$(this).children('img').animate({right:-8},200)/*.stop()*/;
 	})
+
+
+
+	var $list_a = $('.list_a');
+		// 1）获取cookie
+		var goodslist = getCookie('username');
+		if (goodslist ==='') {
+			$list_a.html('欢迎登录名鞋库');
+		}else{
+			$list_a.html(goodslist);
+		}
 })
+
