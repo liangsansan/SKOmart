@@ -16,13 +16,12 @@
 	<script>
 		document.addEventListener('DOMContentLoaded',function(){
 
-
-
+		var pro_main = document.querySelector('.pro_main');
 		// 当前分页
 		var pageNo = 1;
 
 		// 每页显示数量
-		var qty = 8;
+		var qty = 12;
 
 		// 分页总数
 		var pageLen;
@@ -35,8 +34,9 @@
 		xhr.onreadystatechange = function(){
 			if(xhr.readyState === 4){
 				var res = JSON.parse(xhr.responseText);
-
-				res.map((item)=>{
+				//计算分页数量
+				pageLen = Math.ceil(res.total/qty);
+				res.data.map(function(item){
 					var _html = `
 					<div class="product">
 						<div class="pro_fz_new">
@@ -73,9 +73,41 @@
 						var $lis = $('<li />').appendTo(title);
 						var $liA = $('<a />').appendTo($lis);
 						$('<img />').attr('src', arr[j]).appendTo($liA);
-					}	
+					}
+
+
+					//鼠标移到图片上面，显示切换效果
+					var $product = $('.product');
+					var $max_img = $product.find('.pro_max_img');
+					var $title = $product.find('.title');
+					// 显示第一张
+					$max_img.find('img:first-child').show();
+
+					// 绑定点击事件
+					$title.on('mouseenter','li',function(){
+						// 获取索引值
+						var idx = $(this).index();
+						//$(this)=>title:li
+						//closest('ul')=>li的父级元素ul
+						//prev('div')=>ul的上个兄弟元素div:pro_max_img
+						//find('img')=>div:pro_max_img的后代img,隐藏，idx显示
+						$(this).closest('ul').prev('div').find('img').hide().eq(idx).show();
+					});
+					//鼠标移到product，背景变颜色后接着ul显示出来
+					$('.pro_introduce').on('mouseenter',function(){
+						$(this).closest('div').closest('div').css({background:'#eee'});
+						$(this).css({background:'#eee'}).animate({height:135});
+					});
+					//移除
+					$('.pro_introduce').on('mouseleave',function(){
+						$(this).animate({height:84}).css({background:'#fff'});
+						$(this).closest('div').closest('div').css({background:'#fff'});
+					})
+
 				});
-				// pageNo++;
+
+				pageNo++;
+				// console.log(pageNo++);
 			}
 		}
 
@@ -90,9 +122,9 @@
 			// 如何判断滚动到底部？
 			var scrollTop = window.scrollY;//document.body.scrollTop/document.documentElement.scrollTop
 			//判断接近底部时
-			if(scrollTop >= $('.product').offsetHeight - window.innerHeight - 100){
+			if(scrollTop >= pro_main.offsetHeight - window.innerHeight - 100){
 				if(pageNo<=pageLen){
-					
+					console.log(111);
 					xhr.open('get','http://localhost/SKOmart/api/product.php?pageNo=' + pageNo,true);
 					xhr.send();
 				}
@@ -217,7 +249,7 @@
 			</div>
 			<div class="nav_ul">
 				<ul>
-					<li class="nav_ul_1"><a href="">首页</a></li>
+					<li class="nav_ul_1"><a href="../index.html">首页</a></li>
 					<li class="nav_ul_2"><a href="">男子运动</a>
 					<div class="nav_Men">
 						<ul>

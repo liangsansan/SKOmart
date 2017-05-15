@@ -238,6 +238,9 @@ body{
 	    	display: none;
 	    }
 	}
+
+	.pro_main{
+	}
 	.product{
 		width: 220px;
 		height: 340px;
@@ -250,6 +253,9 @@ body{
 			.pro_max_img{
 				>img{
 					display:none;
+					&:first-child{
+						display:block;
+					}
 				}
 			}
 			.title{

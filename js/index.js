@@ -26,7 +26,7 @@ $(function(){
 		$li_1.hide();
 	})
 
-	$main_c_p = $('.main_c_p');
+	/*$main_c_p = $('.main_c_p');
 	$main_c_p.on('mouseenter','li',function(){
 		$(this).css({border:'3px solid #fff'})
 	})
@@ -34,7 +34,7 @@ $(function(){
 	$main_c_p.on('mouseleave','li',function(){
 		$(this).css({border:'0'})
 	})
-
+*/
 
 	$main_l_l1 = $('.main_l_l1');
 	$main_l_l_n = $('.main_l_l_n');

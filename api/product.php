@@ -6,39 +6,27 @@
 		微博消息获取：
 	    返回包含多条产品记录的json数据
 	 */
+	$page_no = isset($_GET['pageNo']) ? $_GET['pageNo'] : 1;
+	$qty = isset($_GET['qty']) ? $_GET['qty'] : 12;
 	$file_url = 'sjon/product.json';
-	$myfile = fopen($file_url, 'r') or die("Unable to open file!");
+
+	// 打开文件
+	$myfile = fopen($file_url, 'r');
+
+	// 读取打开的文件
 	$content = fread($myfile, filesize($file_url));
-	
 
-	// 获取前端参数like&id
-	$like = isset($_GET['type']) ? $_GET['type'] : '';
-	$id = isset($_GET['id']) ?  $_GET['id'] : '';
+	// 把读取到的内容转成数组
+	$arr_data = json_decode($content);
 
-	if($like == 'like'){
-		$myfile = fopen($file_url, 'w');
-		//$content = fread($myfile, filesize($file_url));
-		//$content = file_get_contents($file_url);
+	// 根据分页截取数据
+	$res = array(
+		'data'=>array_slice($arr_data, ($page_no-1)*$qty,$qty),
+		'total'=>count($arr_data)
+	);
 
-		// 把读取到的内容转成数组
-		$arr_data = json_decode($content);
+	// 输出json字符串
+	echo Util::json_encode($res);
 
-		$res;
-
-		foreach ($arr_data as $idx => $value) {
-			if($value->id == $id){
-				$arr_data[$idx]->likecnt++;
-				$res = $arr_data[$idx];
-			}
-		}
-
-		//重新写入文件
-		fwrite($myfile, json_encode($arr_data,JSON_UNESCAPED_UNICODE));
-		echo json_encode($res,JSON_UNESCAPED_UNICODE);
-	}else{
-		
-		echo $content;
-	}
-	
 	fclose($myfile);
 ?>

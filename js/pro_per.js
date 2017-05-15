@@ -98,7 +98,6 @@ $(function(){
 
 
 	var pop = document.querySelector('.pop');
-	console.log(pop)
 	// 定位到居中位置
 	setCenter();
 
@@ -121,13 +120,12 @@ $(function(){
 
 	// 加入购物车
 	$('.btn-danger').on('click',function(){
-		console.log(1);
-		$('.pop').css({width:412,height:172,display:'block'})
+		$('body').css({background:'#ccc'/*,opacity:0.5*/})
+		$('.pop').css({background:'#fff',opacity:1,width:412,height:172,display:'block'})
 	})
 	//隐藏窗口
 	$('.pop_p').on('click','span',function(){
-		console.log(123);
-		$('.pop').animate({width:1,height:1},1000,function(){
+		$('.pop').animate({width:1,height:1},500,function(){
 			$('.pop').css({display:'none'})
 		});
 	})

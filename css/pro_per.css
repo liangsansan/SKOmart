@@ -302,7 +302,7 @@ body { font-family: '微软雅黑'; font-size: 14px; background: #F6F6F6; }
 
 #pro_main .p_main_t .pro_mtop_r .btnBar .btnsBox .btn-fastbuy { float: left; width: 137px; height: 44px; margin-right: 10px; font-size: 20px; }
 
-#pro_main .p_main_t .pro_mtop_r .pop { width: 412px; height: 172px; background: #fff; position: absolute; left: 0; top: 0; border: 6px solid #ccc; }
+#pro_main .p_main_t .pro_mtop_r .pop { width: 412px; height: 172px; background: #fff; position: absolute; left: 0; top: 0; border: 6px solid #ccc; display: none; }
 
 #pro_main .p_main_t .pro_mtop_r .pop > p { height: 24px; }
 
@@ -315,6 +315,10 @@ body { font-family: '微软雅黑'; font-size: 14px; background: #F6F6F6; }
 #pro_main .p_main_t .pro_mtop_r .pop .pop_main .pop_atuo .pop_img { float: left; padding-right: 25px; height: 100px; }
 
 #pro_main .p_main_t .pro_mtop_r .pop .pop_main .pop_atuo .pop_content { float: left; font-size: 12px; }
+
+#pro_main .p_main_t .pro_mtop_r .pop .pop_main .pop_atuo .pop_content i { font-size: 16px; color: red; }
+
+#pro_main .p_main_t .pro_mtop_r .pop .pop_main .pop_atuo .pop_content b { font-size: 16px; color: red; }
 
 #pro_main .p_main_t .pro_mtop_r .pop .pop_main .pop_atuo .pop_content p:first-child { color: red; padding-bottom: 5px; }
 

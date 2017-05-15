@@ -112,6 +112,8 @@ body { background: #fff; }
 
 #filt_main .product .pro_fz_new .pro_max_img > img { display: none; }
 
+#filt_main .product .pro_fz_new .pro_max_img > img:first-child { display: block; }
+
 #filt_main .product .pro_fz_new .title { padding: 2px 0 5px 26px; border-bottom: 1px solid #eee; background: #fff; }
 
 #filt_main .product .pro_fz_new .title li { float: left; width: 34px; height: 29px; text-align: left; }
